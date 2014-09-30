@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Constant Information Display Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0" alt=
+  "the Cyc logo"></a>Constant Information Display Help</h2>E-Mail
+  Comments to: <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <h3><a name="data">HL Data</a></h3>
+
+  <p>The Constant Information Display provides a Heuristic Level
+  (HL) description of the selected constant. This page will be of
+  most use to CYC&reg; System developers; for other users, most of
+  the information on this page can be accessed by using the links
+  from the Term Index panel in the KB Browser.</p>
+
+  <p>The different display categories:</p>
+
+  <ul>
+    <li><b>ID Number:</b> shows the unique constant ID number for
+    the given constant.</li>
+
+    <li><b>Name:</b> shows as a string the name of the constant
+    being described.</li>
+
+    <li>
+      <b>Type List:</b> lists the constant "type", based on the
+      following list:
+
+      <ul>
+        <li>:predicate</li>
+
+        <li>:collection</li>
+
+        <li>:non-predicate-function</li>
+
+        <li>:attribute</li>
+
+        <li>:microtheory</li>
+
+        <li>:generic (the miscellaneous case)</li>
+      </ul>These types are computed from the <a href=
+      "/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a>
+      assertions about the term in various microtheories and cached
+      here for easy access. The canonicalizer uses the constant
+      type to determine well-formedness and remove ambiguity.
+    </li>
+
+    <li><b>Isa Links:</b> lists <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#Collection">#$Collection</a>s
+    of which the constant is an element, organized by <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>.</li>
+
+    <li><b>Genl Links:</b> lists supersets of the given constant,
+    organized by <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>.</li>
+
+    <li><b>MDW Links:</b> lists <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#Collection">#$Collection</a>s
+    with which the given constant is disjoint (<a href=
+    "/cycdoc/vocab/fundamental-vocab.html#disjointWith">#$disjointWith</a>).</li>
+
+    <li><b>Spec Links:</b> lists subsets of the given constant,
+    organized by <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>.</li>
+
+    <li>
+      <b>Index:</b> points to all the indexing involved in going
+      from a term to all the assertions about that term. There are
+      two types of indexes:
+
+      <ul>
+        <li>Simple: a simple list of all assertions about the term.
+        This is a compressed, simplified indexing recently added to
+        the CYC&reg; System.</li>
+
+        <li>Complex: an index structure which gets printed like:
+        <tt>#&lt;INDEX 1234&gt;</tt>. This is an old, full indexing
+        that has been in use throughout Cyc-10. Only terms with a
+        lot of assertions still use this indexing.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Note: Isa, Genl, MDW, and Spec Links are a terse
+  representation of the various SBHL hierarchies that an object can
+  be in, and are computed from ALL the assertions about the given
+  term (not just local ones). Values on the lists of Isa, Genl,
+  MDW, and Spec Links are marked as follows: "+" for true links
+  based on local assertions; "-" for links that are explicitly
+  denied by local assertions; and "|" for links, positive or
+  negative, that are inferred rather than asserted locally.
+  Redundant assertions are not reflected in these HL
+  datastructures.</p>
+
+  <p>A value of NIL for any of the categories means that no values
+  were found for that category.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border="0"
+  alt="a light-blue ball">Go to Top</a><br>
+</body>
+</html>

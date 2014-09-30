@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Remote Operation Filtering Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Remote Operation
+  Filtering Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1996&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This page shows currently active filters and allows the user
+  to make changes to the current filtering state.</p>
+
+  <h3><a name="saving">Saving and Loading Filter
+  Settings</a></h3>Filter settings can be saved out to a file.
+  There is a unique file for each Cyclist, so saving user settings
+  will overwrite previous saved settings for that Cyclist.
+
+  <p>Once saved, filter settings can be loaded back in from a file.
+  The file loaded will be the unique file of settings for the
+  cyclist logged in.</p>
+
+  <h3><a name="types">Methods of Filtering
+  Operations</a></h3>Remote operations can be filtered by
+  specifying any of three objects, as follows.
+
+  <ul>
+    <li><b>Filter Terms:</b> Specifying a term to use will cause
+    all remote operations which contain that term to be ignored by
+    the CYC&reg; Agenda. That means that those operations will not
+    be loaded into the CYC&reg; image and will not be accessible
+    thereafter. Note NATs are not explored recursively to find all
+    atomic terms which make them up. This means that a CYC&reg;
+    formula will not be filtered for containing a NAT which
+    contains a filtered term.</li>
+
+    <li><b>Filter Collections:</b> Specifying a collection to use
+    will cause all remote operations which contain any spec of that
+    collection to be ignore by the CYC&reg; Agenda exactly as if
+    that spec had itself been listed as a term to be filtered.</li>
+
+    <li><b>Transcript Filters:</b> Specifying a transcript filter
+    to use will cause all terms associated with the transcript
+    filter via the #$filterTerms predicate to be filtered exactly
+    as if they had been specified separately as above. Similarly
+    all collections associated with the transcript filter via the
+    #$filterCollections predicate will be filtered as filter
+    collections above.</li>
+  </ul>
+
+  <h3><a name="editing">Adding and Removing Filter
+  Settings</a></h3>Filter settings can be added to any of the three
+  categories available by simply typing in the name of the term,
+  collection, or transcript filter in the appropriate box and
+  clicking on the "Update Filters" button at the top of the page.
+  Clicking "Reset Values" will clear all boxes of whatever text has
+  been typed in them.
+
+  <p>To remove filter settings simply uncheck the checkbox beside
+  the CYC&reg; constant that you do not want filtered and then
+  click the "Update Filters" button. Clicking "Remove All Filters"
+  will remove all the active transcript filters, collections and
+  terms. This is equivalent to unchecking them all and then
+  clicking "Update Filters".</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

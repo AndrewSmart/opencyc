@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>OWL Importer Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top" id="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0" alt=
+  "the Cyc logo"></a>OWL Importer Help</h2>E-Mail Comments to:
+  <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 2007&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Cyc OWL Ontology Importer is a tool for creating or
+  updating a mirror of an OWL ontology in a Cyc KB. A Cyc term
+  representing the OWL ontology itself is specified or created, and
+  each term defined in the OWL ontology is linked (via a
+  #$synonymousExternalConcept assertion) to the ontology and to a
+  new or existing Cyc term.</p>
+
+  <h3><a name="uri" id="uri">Ontology URI</a></h3>
+
+  <p>Each OWL ontology should have a globally unique, persistent
+  uniform resource identifier (URI) by which it can be referenced.
+  Typically, this is a uniform resource locator (URL). If you are
+  importing an ontology that can be downloaded from its URI, the
+  importer will do so. Otherwise, you must provide an OWL file that
+  contains the definition of the OWL ontology.</p>
+
+  <h3><a name="terms" id="terms">New Terms and Prefix</a></h3>
+
+  <p>When the importer encounters a term definition in the OWL
+  file, it will check to see if there is an existing Cyc term
+  associated with the term's name and ontology. If no such term
+  exists, it will create a new term, prefixed with the prefix you
+  specify. For instance, if you give the prefix "FOO-", then for a
+  term in your ontology named "Bar", it will create a new Cyc
+  constant #$FOO-Bar.</p>
+
+  <p>If a different constant with that name already exists, it will
+  add a suffix to the end to uniquify it, e.g. #$FOO-Bar-8. In
+  keeping with Cyc naming conventions, if a new predicate is
+  created (i.e. for an OWL property), the first letter of its
+  constant name will be lowercase. New non-predicates (for OWL
+  classes and non-property instances thereof) will get a constant
+  name whose first character is uppercase.</p>
+
+  <h3><a name="placement" id="placement">Placement in the Cyc
+  Ontology</a></h3>
+
+  <p>Some basic OWL concepts (e.g. #$OWLClass and #$OWLProperty)
+  are already placed in the Cyc ontology and associated with the
+  URIs of their external ontologies and their names therein. Thus,
+  if your ontology contains, for example, instances of
+  owl:SymmetricProperty, the corresponding Cyc term will be an
+  instance of #$OWLSymmetricProperty, and, via transitivity, of
+  #$SymmetricBinaryPredicate.</p>
+
+  <p>OWL subClass and subProperty relations are imported using
+  spec-predicates of #$genls and #$genlPreds, so once an imported
+  OWL class or property is merged with or asserted to be a
+  specialization of an existing Cyc collection or predicate, then
+  the entire hierarchy below it is incorporated as well.</p>
+
+  <p>The rdf:domain and rdf:range properties are interpreted as
+  argument constraints (using spec-predicates of #$arg1Isa and
+  #$arg2Isa), and the various kinds of restrictions in OWL are
+  imported using rule-macro predicates such as #$interArgIsa1-2 and
+  #$relationAllExists.</p>
+
+  <p>For more information about OWL, consult the <a href=
+  "http://www.w3.org/TR/owl-ref/">World Wide Web Consortium OWL
+  Reference</a>.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border="0"
+  alt="a light-blue ball">Go to Top</a><br>
+</body>
+</html>

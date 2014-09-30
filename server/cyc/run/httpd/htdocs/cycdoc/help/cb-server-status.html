@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Agenda Status Bar Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Agenda Status Bar
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Agenda Status Bar provides information to the user about
+  the current state of the CYC&reg; Agenda. This information can be
+  updated manually, by clicking on the "Update" link, or it can be
+  set to update automatically ("Server Update Interval") via the
+  Browser Options page. This link will not appear if "Server Update
+  Interval" has been set to an integer value on the Browser Options
+  page, and JavaScript is turned off. When frames are not being
+  used, this link will update the entire page.</p>
+
+  <h3><a name="mode">Communication Status</a></h3>
+
+  <p>"Comm" lists the current communication status for the CYC&reg;
+  Agenda, and is a link to the Communication Status Area, where the
+  communications settings can be changed. There are six possible
+  combinations of settings, which will show up in the Status
+  Bar:</p>
+
+  <ul>
+    <li><i>Sending and Receiving:</i> send processed operations out
+    immediately, and receive operations from others.</li>
+
+    <li><i>Sending Only:</i> send processed operations out
+    immediately, but do not receive operations from others.</li>
+
+    <li><i>Storing and Receiving:</i> store processed operations
+    for later, and receive operations from others.</li>
+
+    <li><i>Storing Only:</i> store processed operations for later,
+    but do not receive operations from others.</li>
+
+    <li><i>Not Recording but Receiving:</i> don't make a record of
+    processed operations, but receive operations from others.</li>
+
+    <li><i>Not Recording or Receiving:</i> don't make a record of
+    processed operations, and do not receive operations from
+    others.</li>
+  </ul>See the <a href="/cycdoc/help/cb-mode.html">Communication Status Area
+  Help</a> page for more details on communications settings.
+
+  <h3><a name="queues">Operations Queues</a></h3>
+
+  <p>When operations on the CYC&reg; KB are set to be processed by
+  the CYC&reg; Agenda, they are placed in queues: operations
+  originating on other machines go on the remote queue, operations
+  originating on the user's local machine are on the local queue.
+  These queues will not appear in the Agenda Status bar until there
+  are some operations to process.</p>
+
+  <p>"Remote" lists the operations on the remote queue. If only one
+  number is listed, all operations from the remote queue have been
+  processed locally. If two numbers are listed, the left-hand
+  number represents operations that have been read, but have yet to
+  be processed. The right-hand number (or the only number in the
+  case where there is only one listed) represents the total number
+  of operations processed by the current CYC&reg; image, including
+  both remote and local operations, regardless of whether they were
+  successful or caused an error in the Agenda.</p>
+
+  <p>"Local" lists the operations originating on the local queue.
+  If three numbers are listed, the left-hand number represents
+  unprocessed operations, the middle represents operations
+  processed but not yet recorded, and the right-hand number
+  represents operations processed and recorded to the current local
+  transcript. Only operations that have been recorded to the local
+  transcript will be transmitted when processed operations are sent
+  out, either via the Communication Status Area or when "Load
+  Transcript File" is selected from the Navigator. If only one
+  number is listed all local operations have been processed and
+  recorded; however, this number will disappear if these operations
+  are sent to the Master Transcript, since doing so will create a
+  new Local Transcript. If there are still operations in the local
+  queue to be processed, "Local" will appear as an active link to
+  the Local Operations page, where the contents of the local queue
+  will be displayed, and the user will have the option of clearing
+  the entire queue, if desired.</p>
+
+  <p>The System Area and accompanying help page (accessible via the
+  "System" link) provide more details about the individual
+  queues.</p>
+
+  <h3><a name="agenda">The CYC&reg; Agenda</a></h3>
+
+  <p>The CYC&reg; Agenda is the process which controls the
+  functioning of a given CYC&reg; image, including deciding which
+  operations to process and how to handle errors during
+  knowledge-entry (KE).</p>
+
+  <p>"Agenda" lists the current state of the CYC&reg; Agenda, and
+  is a link to the Agenda Process Control, where the current agenda
+  operation can be viewed, the Agenda can be turned on and off, and
+  the error handling mode can be set.</p>
+
+  <p>The CYC&reg; Agenda can be in one of many states, depending on
+  the type of CYC&reg; image being run:</p>
+
+  <ul>
+    <li>C images are not multi-threaded, and so have only two
+    states:
+
+      <ul>
+        <li>None: agenda is not running or has halted (possibly to
+        due to an error in the Agenda, or from never having been
+        turned on).</li>
+
+        <li>Enabled: agenda has been started and is available for
+        operations.</li>
+      </ul>
+    </li>
+
+    <li>Lisp and NT images are multi-threaded, so there are more
+    possibilities:
+
+      <ul>
+        <li>None: agenda is not running or has halted (possibly to
+        due to an error in the Agenda, or from never having been
+        turned on).</li>
+
+        <li>Idle: the agenda is running but has no work to do.</li>
+
+        <li>Run, Running: the agenda is actually in the act of
+        executing an operation.</li>
+
+        <li>Everything else: specific states idiosyncratic to
+        various Common Lisp implementations. While these states are
+        explicitly listed in the Agenda Status Bar, they play no
+        significant role in the Agenda Process Control, and so are
+        grouped together on that page under "Running", primarily as
+        a matter of convenience.<br>
+          Some examples:
+
+          <ul>
+            <li>Probe</li>
+
+            <li>PMap GetPort</li>
+
+            <li>Selected</li>
+
+            <li>User Input</li>
+
+            <li>Arrested</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>The <a href="/cycdoc/help/cb-agenda.html">Agenda Process Control Help</a>
+  page explains in more detail the two major categories of settings
+  for the CYC&reg; Agenda, Halted and Running.</p>
+
+  <h3><a name="image">The CYC&reg; Image</a></h3>
+
+  <p>The CYC&reg; image is the local copy of the CYC&reg; program
+  running on a given machine. Different machines will have
+  different CYC&reg; images. "KB" identifies the version of the
+  Knowledge Base in use.</p>
+
+  <p>"System" lists the current version of the <a href=
+  "/cycdoc/ref/glossary.html#SubL">SubL</a> source code for the current
+  CYC&reg; image, and is a link to the System Area, where machine
+  and image number can be viewed, CYC&reg; patches can be loaded
+  (LISP images only), and the CYC&reg; image can be halted (C
+  images only).</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

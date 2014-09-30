@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Public Assertions Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top" id="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Identifying Terms
+  that are Not Used for Common Sense</h2>E-Mail Comments to:
+  <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>Certain constants are included in a Cyc Knowledge Base simply
+  to support or enable one or more Cyc-based applications or
+  capabilities. These constants are not used to represent common
+  sense knowledge; nor are they used to represent knowledge shared
+  by a significant subset of humans, such as specialized domain
+  knowledge (e.g. the knowledge of experts in some field of study,
+  such as nuclear physics). Any constant that meets this
+  description should be made an instance either of
+  #$ImplementationConstant or of one of its specializations. This
+  will help Cyc to distinguish its common sense knowledge from its
+  application-specific knowledge.</p>
+
+  <p>For example, suppose you create a Cyc-based application (an
+  application which relies on the Cyc API) called MailManager, and
+  you want the program to maintain within the Cyc KB a reified list
+  of e-mail addresses, called #$MailManagerAddresses. To indicate
+  the application-specific nature of MailManager constants, you
+  could first create the new constant
+  #$MailManagerApplicationConstant as an instance of
+  #$ApplicationConstant. (#$ApplicationConstant is a specialization
+  of #$ImplementationConstant.) Then, you could assert (#$isa
+  #$MailManagerAddresses #$MailManagerApplicationConstant).</p>
+
+  <p>After asserting that TERM is an instance either of
+  #$ImplementationConstant or of one of its specializations, the
+  following sentence will appear just below the term's name in the
+  Term Content frame of the KB Browser:</p>
+
+  <p><font style="color:red"><b><u>TERM</u> is not used to
+  represent common sense knowledge.</b></font></p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

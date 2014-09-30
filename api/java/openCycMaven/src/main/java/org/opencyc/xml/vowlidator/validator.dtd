@@ -1,0 +1,89 @@
+<!-- $Id: validator.dtd 138070 2012-01-10 19:46:08Z sbrown $ -->
+<!--This defines the results of the vOWLidator-->
+
+<!--vOWLidator has a version, documents being verified, and the results-->
+<!ELEMENT validator (version, document+, results)>
+
+<!--The version of the vOWLidator that produced these results-->
+<!ELEMENT version (#PCDATA)>
+
+<!--The URI of the document that was validated-->
+<!ELEMENT document (#PCDATA)>
+
+<!--Validator results must have a version, one or more validated document, and any indications-->
+<!ELEMENT results (date, total, displayed, indication*)>
+
+<!--The date and time the results were generated-->
+<!ELEMENT date (#PCDATA)>
+
+<!--The total number of indications found-->
+<!ELEMENT total (#PCDATA)>
+
+<!--The numer of indications displayed-->
+<!ELEMENT displayed (#PCDATA)>
+
+<!--An indication produced by the validator-->
+<!ELEMENT indication (id, type, level, location*, message?)>
+
+<!--The unique id number for the indication-->
+<!ELEMENT id (#PCDATA)>
+
+<!--The type of indication-->
+<!ELEMENT type (#PCDATA)>
+
+<!--The indication level, should be error, warning, or information-->
+<!ELEMENT level (#PCDATA)>
+
+<!--The location in the document of the triple(s) that caused the indication-->
+<!ELEMENT location ((resource) | (uri, statement*) | (stack))>
+
+<!--A specific Resource that is the object of the Indication-->
+<!ELEMENT resource (uri, line?, column?)>
+
+<!--The test message associated with the indication-->
+<!ELEMENT message (#PCDATA)>
+
+<!--The URI of the document that caused this indication to be triggered-->
+<!ELEMENT uri (#PCDATA)>
+
+<!--The RDF triple that caused the indication-->
+<!ELEMENT statement (uri?, line?, column?, predicate, subject, (objectresource | objectliteral))>
+
+<!--The line number and column of the statement in the URI-->
+<!ELEMENT line (#PCDATA)>
+<!ELEMENT column (#PCDATA)>
+
+<!--The predicate, subject, and object of the RDF statement-->
+<!ELEMENT predicate (#PCDATA)>
+<!ELEMENT subject (#PCDATA)>
+
+<!--An object that is a resource-->
+<!ELEMENT objectresource (#PCDATA)>
+
+<!--An object that is a literal-->
+<!ELEMENT objectliteral (#PCDATA)>
+
+<!--A reference stack of URIs-->
+<!ELEMENT stack (uri*)>
+
+<!-- PREFERENCES DTD -->
+
+<!--The top level element for the vOWLidator preferences file-->
+<!ELEMENT validator-preferences (cache|outdatedURI|property)*>
+
+<!--Cache preferences are used to define local cache files-->
+<!ELEMENT cache EMPTY>
+<!ATTLIST cache original CDATA #REQUIRED>
+<!ATTLIST cache file CDATA #REQUIRED>
+
+<!--Used to indicate outdated schemas and issue warnings/load most recent-->
+<!ELEMENT outdatedURI EMPTY>
+<!ATTLIST outdatedURI original CDATA #REQUIRED>
+<!ATTLIST outdatedURI replacement CDATA #REQUIRED>
+<!ATTLIST outdatedURI warn (true|false) "true">
+<!ATTLIST outdatedURI load (true|false) "false">
+
+<!--Used to set property values-->
+<!ELEMENT property EMPTY>
+<!ATTLIST property name CDATA #REQUIRED>
+<!ATTLIST property value CDATA #REQUIRED>

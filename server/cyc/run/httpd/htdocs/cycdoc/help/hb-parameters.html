@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Hierarchy Browser Parameters Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0" alt=
+  "the Cyc logo"></a>Hierarchy Browser Parameters Help</h2>E-Mail
+  Comments to: <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <h3><a name="settings">Hierarchy Browser Settings</a></h3>
+
+  <p>This page allows you to specify settings for the CYC&reg;
+  Hierarchy Browser. Here you can set the starting term (the
+  central, focal, or reference term), the microtheory or
+  microtheories to be used, the binary predicate to be used, the
+  argument position to use as the index, the maximum height and
+  depth to display, and various "extra" features.</p>
+
+  <h3><a name="root">Starting Term</a></h3>
+
+  <p>This section of the page allows you to specify the starting
+  point, or "pivot" term, around which a hierarchical display will
+  be constructed. "Superior" terms will be displayed above and to
+  the left of the pivot term. "Inferior" terms will be displayed
+  below and to the right of the pivot term. Enter the name of a
+  CYC&reg; term (constant, non-atomic term, or lexicon entry) in
+  the type-in space. If your input is ambiguous -- that is, if it
+  can refer to more than one CYC&reg; term -- you will be presented
+  with a menu of terms from which to choose.</p>
+
+  <h3><a name="defaults">Default Settings</a></h3>
+
+  <p>Every CYC&reg; term is a member (element) of one or more sets
+  (types, collections). Some types have pre-defined standard, or
+  default, display settings (see below). If the term entered in the
+  Starting Term type-in space belongs to one of these types, and if
+  the checkbox labelled "Use default settings for term" is checked,
+  then the default settings for this type of term will be used NO
+  MATTER WHAT OTHER SETTINGS ARE SPECIFIED. In other words, if the
+  "Use default settings for term" box is checked, and if the
+  specified starting term belongs to a type which has default
+  settings, then these defaults will override all other settings.
+  To turn off the default settings (and thus prevent them from
+  overriding other settings you might want specify), simply uncheck
+  the "Use default settings for term" box.</p>
+
+  <p>Here are the types which currently have pre-defined default
+  settings, and the settings for each type:</p>
+
+  <table>
+    <tr>
+      <th>Type</th>
+
+      <th>Microtheory</th>
+
+      <th>Predicate</th>
+
+      <th>Index Argument</th>
+
+      <th>Max Height</th>
+
+      <th>Max Depth</th>
+    </tr>
+
+    <tr>
+      <td><a href=
+      "/cycdoc/vocab/fundamental-vocab.html#Collection">#$Collection</a></td>
+
+      <td align="center">ALL</td>
+
+      <td><a href=
+      "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a></td>
+
+      <td align="center">2</td>
+
+      <td align="center">2</td>
+
+      <td align="center">2</td>
+    </tr>
+
+    <tr>
+      <td><a href=
+      "/cycdoc/vocab/fundamental-vocab.html#Predicate">#$Predicate</a></td>
+
+      <td align="center">ALL</td>
+
+      <td><a href=
+      "/cycdoc/vocab/fundamental-vocab.html#genlPreds">#$genlPreds</a></td>
+
+      <td align="center">2</td>
+
+      <td align="center">5</td>
+
+      <td align="center">5</td>
+    </tr>
+
+    <tr>
+      <td><a href=
+      "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a></td>
+
+      <td align="center">ALL</td>
+
+      <td><a href=
+      "/cycdoc/vocab/mt-expansion-vocab.html#genlMt">#$genlMt</a></td>
+
+      <td align="center">2</td>
+
+      <td align="center">2</td>
+
+      <td align="center">2</td>
+    </tr>
+
+    <tr>
+      <td><a href=
+      "/cycdoc/vocab/fundamental-vocab.html#AttributeValue">#$AttributeValue</a></td>
+
+      <td align="center">ALL</td>
+
+      <td><a href=
+      "/cycdoc/vocab/fundamental-vocab.html#genlAttributes">#$genlAttributes</a></td>
+
+      <td align="center">2</td>
+
+      <td align="center">5</td>
+
+      <td align="center">5</td>
+    </tr>
+
+    <tr>
+      <td><a href=
+      "/cycdoc/vocab/geography-vocab.html#GeographicalRegion">#$GeographicalRegion</a></td>
+
+      <td align="center">ALL</td>
+
+      <td><a href=
+      "/cycdoc/vocab/spatial-vocab.html#geographicalSubRegions">#$geographicalSubRegions</a></td>
+
+      <td align="center">1</td>
+
+      <td align="center">2</td>
+
+      <td align="center">2</td>
+    </tr>
+  </table>
+
+  <p>The default settings cannot (easily) be changed by an ordinary
+  user. They are somewhat arbitrary, but are designed mainly to
+  prevent novice users from unintentionally asking the system to
+  construct hierarchical displays that would take several minutes
+  of computation time and fill many screenfuls when presented.
+  There is nothing to prevent the user from intentionally making
+  such requests, by unchecking the "Use default settings for term"
+  box!</p>
+
+  <h3><a name="mt">Microtheory</a></h3>
+
+  <p>This section of the page allows you to specify the microtheory
+  or microtheories to use when constructing the hierarchical
+  display. Note that the CYC&reg; Hierarchy Browser is really just
+  another way of looking at a subset of the assertions in the
+  CYC&reg; Knowledge Base. Like all CYC&reg; assertions, those
+  viewed in the Hierarchy Browser are grouped, or bundled, in
+  logical contexts (microtheories). The Hierarchy Browser allows
+  you to select assertions from one microtheory, from a set of
+  nested microtheories, or from all of the microtheories in the
+  CYC&reg; Knowledge Base:</p>
+
+  <ul>
+    <li>To view assertions from one microtheory, enter the name of
+    the microthoery in the type-in space. If your input is
+    ambiguous -- that is, if it can refer to more than one
+    microtheory -- you will be presented with a menu of
+    microtheories from which to choose.</li>
+
+    <li>If you want to view assertions selected from one
+    microtheory and all of its more general (nested) microtheories
+    (i.e., those microtheories mapped to by the predicate <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#genlMt">#$genlMt</a>),
+    then in addition to entering the name of a microtheory in the
+    type-in space, check the box labelled "Use its genl mts too, if
+    possible".</li>
+
+    <li>If you want to view assertions selected from all
+    microtheories known to CYC&reg;, you have two choices. You can
+    enter "ALL" in the type-in space, or you can simply check the
+    box labelled "Use all mts".</li>
+  </ul>
+
+  <p>Note that if the box labelled "Use all mts" is checked, this
+  will override any other microtheory settings. All microtheories
+  will be used, no matter what is entered in the type-in space, and
+  regardless of whether or not the other checkbox is checked.</p>
+
+  <p>Note, also, that if the checkbox labelled "Use default
+  settings for term" under the heading Starting Term is checked,
+  and if the term entered is of a type which has pre-defined
+  default settings, then these pre-defined default settings will
+  override other microtheory settings, no matter what they are.</p>
+
+  <h3><a name="predicate">Binary Predicate</a></h3>
+
+  <p>This section of the page allows you to specify the binary
+  relation that will be used to construct the hierarchical display.
+  Enter the name of a binary CYC&reg; predicate in the type-in
+  space. If your input is ambiguous -- that is, if it can refer to
+  more than one binary predicate -- you will be presented with a
+  menu of predicates from which to choose. In most cases, it makes
+  sense to specify only a transitive binary predicate, but any
+  binary CYC&reg; predicate is allowed.</p>
+
+  <p>Note that if the checkbox labelled "Use default settings for
+  term" under the heading Starting Term is checked, and if the term
+  entered is of a type which has pre-defined default settings, then
+  the pre-defined default predicate will be used no matter what is
+  entered in the type-in space for the Binary Predicate
+  section.</p>
+
+  <h3><a name="index">Index Argument</a></h3>
+
+  <p>This section of the page allows you to specify which argument
+  position the starting or "pivot" term should occupy relative to
+  lower or "inferior" terms in CycL expressions using the predicate
+  specified in the Binary Predicate section. This information will
+  determine whether "broader" terms will appear above and to the
+  left of the starting term, or below and to the right of the
+  starting term, when the hierarchical display is constructed.</p>
+
+  <p>Suppose I have selected <a href=
+  "/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> as my starting
+  term, and <a href=
+  "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> as my
+  binary predicate. Now I am faced with this choice: do I want the
+  terms that are more general than <a href=
+  "/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> to appear above
+  <a href="/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> in the
+  hierarchical display and the terms that are more specific than
+  <a href="/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> to
+  appear below it, or do I want the terms that are more specific
+  than <a href="/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> to
+  appear above it and those that are more general to appear below
+  it? If I want the more general terms to appear above <a href=
+  "/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> and the more
+  specific terms to appear below it, I would check the radio button
+  marked "2". This means that in gathering and displaying the
+  assertions used to construct "inferior" terms, the Hierarchy
+  Browswer will start by finding all immediate X such that</p>
+  <pre>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> X <a href=
+"/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a>)
+</pre>is true. Then, for each X, X will be substituted for
+  <a href="/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> in the
+  expression above and the process will (recursively) continue
+  until the lower part of the hierarchical display has been
+  constructed, or some resource constraint has been reached. Note
+  that <a href="/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a>
+  occupies the 2nd argument position in the CycL expression above.
+  To construct the upper part of the hierarchical display (the part
+  showing terms "superior" to <a href=
+  "/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a>), the starting
+  CycL expression will be
+  <pre>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a> X)
+</pre>Since the placement of "superior" and "inferior" terms
+depends both on the argument position of the starting term, and on
+the value ("1" or "2") chosen for the index argument, determining
+how to get the hierarchical display to look like you want it to can
+sometimes be confusing. If you have chosen one value for the index
+argument and the resulting display seems "backwards" to you, simply
+select the other index argument value and see if this is what you
+want.
+
+  <p>Note that if the checkbox labelled "Use default settings for
+  term" under the heading Starting Term is checked, and if the term
+  entered is of a type which has pre-defined default settings, then
+  the default index argument setting will override the setting
+  specifed in the Index Argument section.</p>
+
+  <h3><a name="height">Height and Depth</a></h3>
+
+  <p>This section of the page allows you to specify how many steps
+  (ascending) to the left from the starting term, and how many
+  steps (descending) to the right from the starting term, should be
+  included in the hierarchical display. It also allows you to
+  specify a maximum number of "inferior" terms (terms appearing
+  below the starting term) to display. The allowed maximum number
+  of rightward (descending) levels to display, based on the
+  specified maximum number of "inferior" terms, is quickly computed
+  before the hierarchical display is constructed. The "Max depth"
+  and "Max inferior terms" constraints interact in (possibly)
+  unintuitive ways. Here is a specification of the relationship
+  between these contraints. Note that (a) overrides (b), which
+  overrides (c), which overrides (d):</p>
+
+  <ul>
+    <li>(a) Only complete levels of inferior terms will be
+    displayed. If the max depth setting is NONE, no inferior terms
+    will be displayed;</li>
+
+    <li>(b) If the max depth setting is not NONE (i.e., is &gt; 0),
+    then at least one complete inferior level will be allowed;</li>
+
+    <li>(c) If a max inferior terms cutoff of N is specified, no
+    more than N inferior terms will be displayed;</li>
+
+    <li>(d) If a max depth cutoff of N is specified, no more than N
+    inferior levels will be displayed.</li>
+  </ul>If the max inferior terms type-in space is left blank, this
+  will be interpreted to mean that there is NO UPPER BOUND on the
+  number of inferior terms which may be displayed.
+
+  <p>Note that if the checkbox labelled "Use default settings for
+  term" under the heading Starting Term is checked, and if the term
+  entered is of a type which has pre-defined default settings, then
+  the default max height and max depth constraints will be used
+  regardless of the settings specified in the Height and Depth
+  section. There are no default settings for max inferior terms, so
+  this constraint is always honored.</p>
+
+  <h3><a name="extras">Extras</a></h3>
+
+  <p>This section of the page allows you to set additional (mostly
+  cosmetic) features:</p>
+
+  <ul>
+    <li>If the checkbox labelled "Use lexicon entries, if possible"
+    is checked, the hierarchy will be displayed using Cyc's English
+    lexicon entries for constants, rather than constant names.
+    Constructing the hierarchical display may take longer if this
+    option is checked, but the English lexicon entry for a constant
+    sometimes gives a better indication of what the constant means
+    than does the constant name.</li>
+
+    <li>If the checkbox labelled "Show comments for terms" is
+    checked, each term in the hierarchy will be followed by its
+    <a href="/cycdoc/vocab/doc-vocab.html#comment">#$comment</a>
+    entry or entries. The <a href=
+    "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a> for a term
+    often include a precise description of what the term means. If
+    there is more than one <a href=
+    "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a> entry for
+    a term, the entries are sorted by microtheory. <a href=
+    "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a> entries
+    are not indented like terms in the hierarchical display. They
+    are arranged in tabular form by microtheory, starting at the
+    left margin of the display.</li>
+
+    <li>If the checkbox labelled "Show assertion's mts after terms"
+    is checked, the microtheory (or microtheories) in which the
+    relevant assertion occurs is printed after the "inferior" term
+    in the assertion. Suppose the predicate <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> is
+    used to construct a hierarchical display of the constant
+    <a href="/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a>. A
+    fragment of the display might look like this:
+      <pre>
+  ... AnimalBodyShape
+          FishlikeBodyShape [BaseKB]
+  ... Heterotroph
+          Animal [BiologyMt]
+  ... Organism-Whole
+          AquaticOrganism [BaseKB, BiologyMt]
+          Animal [BaseKB]
+              Fish
+              [BaseKB -&gt; (Animal, FishlikeBodyShape)]
+              [BiologyMt -&gt; (AquaticOrganism)]
+                  Barracuda [BaseKB] &lt;-
+                  Carp [BaseKB] &lt;-
+                  Catfish [BaseKB] &lt;-
+</pre>The fragment above is equivalent to the following assertions:
+      <pre>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#FishlikeBodyShape">#$FishlikeBodyShape</a> <a href="/cycdoc/vocab/biology-vocab.html#AnimalBodyShape">#$AnimalBodyShape</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Animal">#$Animal</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Heterotroph">#$Heterotroph</a>) in #$BiologyMt
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#AquaticOrganism">#$AquaticOrganism</a> <a href="/cycdoc/vocab/biology-vocab.html#Organism-Whole">#$Organism-Whole</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Animal">#$Animal</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Organism-Whole">#$Organism-Whole</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Animal">#$Animal</a>) in <a href=
+"/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#FishlikeBodyShape">#$FishlikeBodyShape</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#AquaticOrganism">#$AquaticOrganism</a>) in #$BiologyMt
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> #$Barracuda <a href="/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> #$Carp <a href="/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> #$Catfish <a href="/cycdoc/vocab/biology-vocab.html#Fish">#$Fish</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+</pre>Note that in the hierarchical display, for all assertions
+except those in which the "inferior" term is the starting term, the
+microtheory (or occasionally, microtheories) for the assertion is
+printed in square brackets following the "inferior" term. A
+different convention is used to set off the starting term. It is
+printed in a larger font, and in the square brackets following it,
+the relevant microtheories are listed with a pointer from each to
+the starting term's immediate "superior" terms in that microtheory.
+    </li>
+
+    <li>The text input space labelled "Indent quantum" allows you
+    to specify how deeply each new level in the hierarchical
+    display should be indented. The value must be an integer
+    between 0 and 50. Units (quanta) do not correspond to pixels or
+    fixed-width font width. Depending on the font used by your
+    browser, you may have to experiment to find a pleasing setting.
+    3 or 4 seem to produce the best results for a wide variety of
+    fonts and font sizes.</li>
+
+    <li>The link labelled "Color and Symbols" will take you to a
+    page that allows you to change these settings.</li>
+  </ul>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border="0"
+  alt="a light-blue ball">Go to Top</a><br>
+</body>
+</html>

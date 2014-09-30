@@ -1,0 +1,85 @@
+#completeContainer .yui-ac-content {max-height:21em; _height:21em; overflow:auto; width: 50em}
+.cycAutocompleteContainer          {max-height:400px; _height:21em; width: 20em}
+.autocomplete                      {width: 300px}
+.autoCompCycL                      {font-size:80%; font-style:italic; color:#666666}
+li.yui-ac-highlight .autoCompCycL  {color:#FFF;}
+.term-highlight                    {background-color: rgba(255, 255, 153, 0.8)}
+.cons                              {word-spacing: 0.35em}
+.cons .string                      {word-spacing: normal}
+hr.menuBreak                       {margin-top: -1px; margin-bottom: -2px;}
+.yuimenuitemlabel                  {padding-left: 12px}
+.yuimenu ul                        {padding: 0px}
+.confirm                           {font-weight:900}
+.confirm:hover                     {color: white}
+#reloadFrameButton                 {position:fixed; right: 10px; visibility:hidden}
+#reloadFrameButton.visible         {visibility:visible}
+
+
+/*Proof-view display */
+.pf-debug .pf-stepnum              {display:inline; background-color: yellow; float:right}
+.pf-debug .pf-root>tbody>tr>.pf-steprow      {display:inherit}
+.pf-debug .pf-entry-struct	   {display:inherit}
+.pf-debug .pf-toc	   	   {display:inherit}
+.pf-debug .pf-parameters	   {display:inherit}
+.pf-debug .pf-show-cycl-button     {display:none}
+.pf-debug a[name="filtered"]       {display:inherit}
+.pf-debug #filtered                {display:static}
+.pf-debug #pfFilteredItems         {display:inline}
+#pfFilteredItems                   {display:none}
+li#filtered			   {display:none}
+.pf-entry-content                  {display: inline}
+#pf-buttonbar                      {position:fixed}
+.pf-object 			   {display:none}
+.showcycl .pf-object               {display:inline}
+.pf-indent-td                      {width: 20px}
+.pf-stepnum                        {display:none}
+.pf-entry-struct	   	   {display:none}
+.pf-toc	   	   		   {display:none}
+.pf-parameters	   		   {display:none}
+.pf-steprow                        {font-weight: 700; font-size:130%}
+.pf-object			   {font-family: monospace}
+.pf-object a:link                  {color: #666666}
+.pf-object                         {font-size: 80%; color: #666666}
+.pf-rule .pf-label                 {font-size: 80%}
+.pf-conclusion .pf-label           {font-size: 90%}
+.pf-paraphrase                     {font-weight: 500;}
+.pf-hide-cycl .pf-object           {display:none}
+.pf-root>tbody>tr>.pf-steprow      {display:none}
+.pf-root td                        {padding: 0px}
+.pf-label			   {vertical-align:top; font-family: sans-serif}
+.pf-indent-td			   {vertical-align:top; padding-top: 0.3em}
+/*.pf-rule 			   {background-color: yellow}*/
+a[name="filtered"]                 {display:none}
+ul				   {margin-top: 0px; margin-bottom: 0px}
+td				   {padding:0px}
+
+
+/* Inline Editing */
+#innerchange              {position:absolute; left: 20px; width:600px; padding:5px; margin:10px; 
+                           background-color:rgb(224,234,248); color:black; border: solid black 1px; 
+                           box-shadow: 0 0 1em rgba(186, 208, 239, 1); border-radius:8px }
+#innerchangesubmitbutton            {font-size:8pt}
+.inline-edit-mt                     {color: #666666; font-size:9pt}
+.popmelinkmeclass .yui-ac           {visibility:visible; width: 400px; height: 12pt; left:0}
+.popmelinkmeclass .yui-ac.invisible {visibility:hidden; width: 0px; height: 0px; font-size:0pt}
+.ac-results               {visibility:visible; width:400px; line-height:12px; font-size:10pt; top:6px; padding:0; 
+                           left:0; height:400px}
+.ac-results.invisible     {visibility:hidden; width:0px; height: 0; font-size:0pt}
+#innerchange .searchbutton           {visibility:visible; width: 60px; height:20px; padding:1px; border-width:1px;
+                                      left: 0; font-size: 8pt; position:relative}
+#innerchange .searchbutton.invisible {visibility: hidden; width: 0px; height:0px; padding: 0px; 
+                                      border-width: o; font-size:0}
+.yui-ac-container.search-results           {background-color:white; border: solid black 1px; width:600px; top:-20px; 
+                                            padding:5px; font-size:8pt;}
+.yui-ac-container.search-results.invisible {visibility:hidden; width:0; font-size:0; padding:0 border-width:0}
+.yui-ac-input.inline-edit-input            {position:relative; top: 0; width:200px; height:12pt; 
+                                            padding:1px; border-width:1px; font-size: 12pt}
+.yui-ac-input.inline-edit-input.invisible  {visibility:hidden; width:0; height:0; border-width:0; font-size: 0; 
+                                            padding: 0}
+.button-row input        {font-size: 8pt}
+
+font.popmelinkme_class:hover      { cursor:pointer; text-decoration:underline} 
+font.dyntext_class                { color:#600030; } 
+font.searchresultline_class       { color:black; line-height:140%; font-size:10pt; } 
+font.searchresultline_class:hover { background-color:#ffdddd; } 
+font.err_class                    { border:solid red 1px; } 

@@ -1,0 +1,75 @@
+ul.nde-menu-system *
+{
+  font-size: 1em;
+}
+
+ul.nde-menu-system li
+{
+  padding: 0.25em 0 0;
+  margin: 0;
+  font-size: 0.9166em;
+}
+
+ul.nde-menu-system li a
+{
+  display: inline;
+  text-decoration: none;
+  margin: 0;
+}
+
+ul.nde-menu-system li a:hover
+{
+  color: #FAA;
+}
+
+ul.nde-menu-system li a
+{
+  border-right: 1px solid;
+  padding: 0.4em 0.125em;
+}
+
+/* override excessive bottom padding which is included
+   to deal with IE/Win problems with a selector it
+   doesn't understand to hide the declaration */
+
+html>body ul.nde-menu-system li a
+{
+  padding-bottom: 0.3em;
+}
+
+ul.nde-menu-system li ul 
+{
+  left: 0;
+  top: 1.8em !important;
+  border-top: 1px solid;
+}
+
+ul.nde-menu-system li ul li
+{
+  border-style: solid;
+  border-width: 0 1px 1px;
+  list-style: none;
+}
+
+ul.nde-menu-system li ul li a
+{
+  padding: 3px 2.5%;
+  border-width: 0;
+}
+
+ul.nde-menu-system li ul 
+{
+  background-color: aqua;
+  border-color: white;
+}
+
+ul.nde-menu-system li ul li 
+{
+  background-color: #a0ddf0;
+  border-color: rgb(66%,66%,66%);
+}
+
+ul.nde-menu-system li.submenu ul a
+{
+  color: black !important;
+}

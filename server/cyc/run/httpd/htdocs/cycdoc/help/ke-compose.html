@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Compose KE Text Expressions Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Compose KE Text
+  Expressions Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This facility allows the user to enter new knowledge into the
+  CYC&reg; KB using the KE Text format. For users unfamiliar with
+  this special knowledge entry format, see the <a href=
+  "/cycdoc/ref/ke-file.html">KE Text Documentation</a>.</p>
+
+  <h3><a name="compose">Composing KE Text</a></h3>
+
+  <p>To enter new knowledge, simply type KE Text expressions into
+  the input window, then press the [<i>Eval</i>] button. Remember
+  to include a period after each expression, and place semi-colons
+  in front of any comments (text not to be processed). Also
+  remember that KE Text syntax does not use the "#$" in front of
+  constant names.</p>
+
+  <p>To take advantage of constant completion, type the first part
+  of a CYC&reg; constant in the input window, then press the
+  [<i>Complete</i>] button. Remember that a list of completions
+  will appear in a separate HTML browser window if the completion
+  is not unique.</p>
+
+  <p>To clear the input field, press the [<i>Clear</i>] button.</p>
+
+  <h3><a name="options">Options for Compose</a></h3>
+
+  <p>Compose KE Text contains two options. To set an option, simply
+  click on the checkbox to the left of the option. When the
+  [<i>Eval</i>] button is pressed, the selected option(s) will be
+  used during the evaluation of the KE Text.</p>
+
+  <ul>
+    <li><b>Remove non-printing characters in strings:</b> If this
+    option is checked, then all characters occurring in CYC&reg;
+    system strings in prospective entries (e.g., <a href=
+    "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a> strings,
+    <a href=
+    "/cycdoc/vocab/doc-vocab.html#cyclistNotes">#$cyclistNotes</a>
+    strings, etc.) must have a character code between 31 and 127,
+    or they will be replaced with a space at assert time. This
+    means that with this option checked, all tabs, returns,
+    linefeeds, and wacky Genera font characters occurring in
+    CYC&reg; system strings will be replaced with an equal number
+    of spaces. So if people want to include tabs and linefeeds in
+    their <a href=
+    "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a> strings
+    (possible, but not recommended), they should not check this
+    option.</li>
+
+    <li><b>Check for existing assertions:</b> If this option is
+    checked, the user will be notified if an assertion they want to
+    enter is already in the KB.. If it is not checked, then the
+    user will not be so notified (and KE File will not go to the
+    trouble of checking to see if the prospective entries are
+    already in the KB). Generally speaking, it takes longer to
+    check to see if assertions are already in the KB than to just
+    evaluate a batch of (possibly redundant) entries. In general,
+    no bad consequences result from evaluating a ke-assert for a
+    form that is already in the KB. However, some people want to
+    know if any of the assertions they are about to enter are
+    already in the KB.</li>
+  </ul>
+
+  <h3><a name="processing">Processing KE Text</a></h3>
+
+  <p>After the [<i>Eval</i>] button is pressed, the KE Text will be
+  processed as follows:</p>
+
+  <ol>
+    <li>CYC&reg; will check for any syntax errors, ask the user to
+    fix those errors and retry.</li>
+
+    <li>Any constants unknown to CYC&reg; will be collected, and
+    the user will be asked if they want to make constants out of
+    these strings. Click on "Make Constants" to confirm, or go back
+    to make sure constant names have been entered correctly.</li>
+
+    <li>Wait a few moments for the constants to be created before
+    proceeding. If you proceed before CYC&reg; has had a chance to
+    create all of the new constants, the CYC&reg; Agenda may get an
+    error when processing certain operations.</li>
+
+    <li>All expressions will be listed for review by the user.
+    Confirm to proceed.</li>
+
+    <li>The CYC&reg; Agenda will then process all operations in
+    order. Errors will be handled depending on the Error Handling
+    Mode selected. To set the Error Handling Mode, click on the
+    "Mode" link in the Agenda Status Bar.</li>
+  </ol>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

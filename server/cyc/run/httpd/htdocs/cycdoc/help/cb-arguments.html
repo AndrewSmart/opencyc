@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Arguments Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Arguments
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <h3><a name="arguments">Assertion Arguments</a></h3>
+
+  <p>Every assertion in the CYC&reg; KB has arguments which
+  immediately support its existence in the KB. This page displays a
+  selected assertion, followed by the arguments which support it.
+  If an argument for an assertion is removed from the KB, then the
+  assertion is removed as well, unless it can still be derived via
+  other arguments.</p>
+
+  <p>Arguments are essentially the converse of dependents. That is,
+  if assertion A is an argument for assertion B, then B is a
+  dependent of A. For more information on dependents, see the
+  <a href="/cycdoc/help/cb-dependents.html">Dependents Help</a>.</p>
+
+  <h3><a name="types">Local vs. Deduced Arguments</a></h3>
+
+  <p>Assertions in CYC&reg; (as reflected by their arguments) come
+  in two flavors: local or deduced.</p>
+
+  <ul>
+    <li>Local: local assertions are those that are asserted by some
+    source outside of CYC&reg;, most likely a human user. Arguments
+    for these kinds of assertions are of the form:
+      <pre>
+  Asserted locally by Fred on Nov 25, 1996
+</pre>In other words, the displayed assertion is true because Fred
+asserted it.
+    </li>
+
+    <li>Deduced: deduced assertions are those that are derived from
+    other knowledge in the KB. Arguments for these kinds of
+    assertions are of the form:
+      <pre>
+  Argument : Deduced #10657786
+
+    [Supporting-Argument-1]
+    [Supporting-Argument-2]
+</pre>In other words, the combination of [Supporting-Argument-1]
+and [Supporting-Argument-2] result in the displayed assertion being
+concluded by CYC&reg;. Deduced assertions cannot be deleted;
+instead, use the "Blast" tool accessible from the Assertion Display
+Frame.
+
+      <p>If an argument for a deduced assertion originated via a
+      special HL-module, the name of that module (e.g. :ISA) will
+      apppear in place of the standard colored ball in front of the
+      argument.</p>
+
+      <p>Clicking on the "Deduced" link will display the argument
+      source in more detail.</p>
+    </li>
+  </ul>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

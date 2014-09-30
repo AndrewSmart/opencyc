@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Term Index Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top" id="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Term Index
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>See the <a href="/cycdoc/help/browser-icon-key.html" target=
+  "documentation-window">Key for Icons in the Browser</a> for an
+  explanation of icons used in this section.</p>
+
+  <p>The Term Index is used to display information about a selected
+  constant in the KB, and is divided into two frames. The left-hand
+  frame contains a list of operations that can be performed on the
+  displayed constant, as well as an index of assertion types
+  involving the constant. The right-hand frame contains the actual
+  assertions, and its contents are determined by the term that is
+  selected in the left-hand frame index.</p>
+
+  <p>The options available in the Term Index will vary with each
+  constant, as well as with different versions of the CYC&reg;
+  System. If an option below does not appear do not be alarmed.</p>
+
+  <h3><a name="LHF" id="LHF">Left-Hand Frame</a></h3>
+
+  <p>The constant is displayed at the top of the frame. Clicking on
+  the red diamond <img src="/cycdoc/img/cb/red_diam.gif" alt=
+  "a red diamond"> will bring up the Hierarchy Browser display for
+  the constant. Clicking on the "A" icon <img src=
+  "/cycdoc/img/cb/alpha.gif" alt="a capital A on blue background">
+  will bring up the Alphabetical Search with the constant as the
+  root node.</p>
+
+  <h4><a name="operations" id="operations">Operations on
+  Constants</a></h4>
+
+  <p>The various operations that can be performed on the constant
+  are listed underneath the constant name:</p>
+
+  <ul>
+    <li>"Filter Mt" is a filtering tool which modifies the Term
+    Index to display only those assertions that are in the
+    specified <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>.
+    The default setting is "All Mts", meaning that filtering is not
+    selected and that assertions from all microtheories will be
+    displayed. To change microtheories, click on the "Filter Mt"
+    link and select the check boxes adjacent to the desired
+    microtheories.</li>
+
+    <li>"Create Similar" is a tool which creates a new constant
+    similar to the displayed constant, allowing the user to choose
+    which of the assertions concerning the displayed constant to
+    copy over to the new constant.</li>
+
+    <li>"Rename" is a tool which allows the user to change the name
+    of the displayed constant. All assertions concerning the
+    displayed constant will be left intact, displayed with the new
+    name. Certain constants cannot be renamed directly via the KB
+    Browser. For these constants, the "Rename" link will not be
+    active. For details, see the <a href=
+    "/cycdoc/ref/renames-kills.html">Cyc Rename/Kill
+    Documentation</a>.</li>
+
+    <li>"Kill" removes the displayed constant from the KB, and
+    deletes all assertions which involve it. A confirmation will be
+    requested before the kill is actually executed. Certain
+    constants cannot be killed directly via the KB Browser. For
+    these constants, the "Kill" link will not be active. For
+    details, see the <a href="/cycdoc/ref/renames-kills.html">Cyc
+    Rename/Kill Documentation</a>.</li>
+
+    <li>"Force TMS" forces full TMS (Truth-Maintenance) to be
+    performed on every assertion involving the given constant.
+    Performing TMS on an assertion essentially asks the system to
+    reevaluate all of the arguments for that assertion. This is
+    most useful when some of the assertions have deduced sources
+    which depend on some HL (Heuristic Level) supports which no
+    longer hold. Thus, if some assertions on a constant look like
+    they have a stale HL support justifying them, clicking on
+    "Force TMS" will make the stale arguments go away. Since this
+    is a potentially large (and hence time-consuming) computation,
+    a confirmation page will appear when this link is
+    selected.</li>
+
+    <li>"Diagnose" performs low-level diagnostics on the constant.
+    This is only available in certain versions of the CYC&reg;
+    System.</li>
+  </ul>For certain constants, the hotlinks to "Rename" and "Kill"
+  will not be active. These are constants that are mentioned in
+  code, and a special procedure must be followed when renaming or
+  killing them. See <a href=
+  "/cycdoc/ref/renames-kills.html#code">Renaming Constants in Code</a>
+  for details. Constants mentioned in code will be labelled "CODE"
+  at the top of the right-hand frame when "Definitional Info" is
+  selected in the index.
+
+  <p>Constants mentioned in the documentation also have special
+  procedures governing their renaming and killing. See <a href=
+  "/cycdoc/ref/renames-kills.html#public">Renaming Public Constants</a>
+  for details. Constants in the public release will be labelled
+  "PUBLIC" at the top of the right-hand frame when "Definitional
+  Info" is selected in the index.</p>
+
+  <h4><a name="categories" id="categories">Index
+  Categories</a></h4>
+
+  <p>Clicking on an index category in the Term Index will cause the
+  corresponding set of assertions involving the displayed constant
+  to be displayed in the right-hand frame. For example, clicking on
+  "genls" under the "Arg 1" heading will display all of the
+  supersets of the constant. Clicking on the red diamond <img src=
+  "/cycdoc/img/cb/red_diam.gif"> next to a category will bring up
+  the Hierarchy Browser display for the constant using the category
+  as the indexing predicate. Clicking on one of the plus "+" icons
+  will compute all possible assertions (local plus deduced) in that
+  category using the Literal Query tool. Clicking on the category
+  itself will display only local assertions of that type.</p>
+
+  <p>The different index categories:</p>
+
+  <ul>
+    <li><b>Documentation:</b> displays documentation and
+    bookkeeping assertions; the most important of these is <a href=
+    "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a>.</li>
+
+    <li><b>Definitional Info:</b> displays basic, definitional
+    information, such as <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a>, <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a>, and
+    <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#genlPreds">#$genlPreds</a>.</li>
+
+    <li><b>HL Data:</b> displays a Heuristic Level (HL) description
+    of the given constant. This option is only available in certain
+    versions of the CYC&reg; System.</li>
+
+    <li><b>Lexical Info:</b> displays lexical information,
+    including any <a href=
+    "/cycdoc/vocab/lexicon-vocab.html#denotation">#$denotation</a>
+    links and part-of-speech information.</li>
+
+    <li><b>Applicable Relations:</b> lists those relations which
+    can apply to the displayed constant (via some argument).</li>
+
+    <li><b>All Assertions:</b> displays a complete listing of all
+    assertions which involve the displayed constant. The total
+    number is listed in parentheses.</li>
+
+    <li><b>Public Assertions:</b> displays a listing of assertions
+    involving this constant that contain only other public
+    constants. A question mark (?) is given for the number of
+    assertions because the list of assertions is not computed until
+    a request to see them is made. This option is also only
+    available in certain versions of the CYC&reg; System. A
+    question mark followed by the abbreviation "exp." (? exp.)
+    means "potentially expensive"; clicking on links marked thisway
+    requests the generation of a large list which may be
+    computationally expensive to compile.</li>
+
+    <li><b>IKB Constants:</b> displays a listing of assertions
+    involving this constant that contain only constants which are
+    elements of #$IKBConstant. A question mark (?) is given for the
+    number of assertions because the list of assertions is not
+    computed until a request to see them is made. This option is
+    also only available in certain versions of the CYC&reg; System.
+    A question mark followed by the abbreviation "exp." (? exp.)
+    means "potentially expensive"; clicking on links marked thisway
+    requests the generation of a large list which may be
+    computationally expensive to compile.</li>
+
+    <li><b>All GAFs:</b> displays all ground atomic formulas (GAFs)
+    involving the displayed constant. The number to be shown is in
+    parentheses; no number means that only one will be shown.</li>
+
+    <li><b>Arg 1-5:</b> displays all assertions in which the
+    displayed constant is in the 1st argument position, etc.
+    Clicking on a relation sub-header (e.g., <b>isa</b> or
+    <b>genls</b>) displays the subset of assertions in which the
+    selected relation is used. For example, "genls" under "Arg 1"
+    will return rules of the form: (<a href=
+    "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a>
+    constant X), i.e. supersets; "genls under "Arg 2" will return
+    rules of the form: (<a href=
+    "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> X
+    constant), i.e. subsets. Clicking on a microtheory sub-header
+    displays the subset of assertions that are true in the selected
+    microtheory.</li>
+
+    <li><b>Predicate Extent:</b> applies only to relations;
+    displays all assertions in which the displayed constant is in
+    the 0th argument position (e.g., (constant x y)).</li>
+
+    <li><b>All Rules:</b> displays all complex rules (as opposed to
+    GAFs) involving the displayed constant.</li>
+
+    <li><b>Antecedent:</b> displays the subset of rules in which
+    the displayed constant appears in the antecedent.</li>
+
+    <li><b>Consequent:</b> displays the subset of rules in which
+    the displayed constant appears in the consequent.</li>
+
+    <li><b>Microtheory Contents:</b> only available if the
+    displayed constant is a <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>;
+    displays all assertions in that microtheory.</li>
+
+    <li><b>Miscellaneous:</b> displays all other references to the
+    displayed constant that are not covered in the previous
+    categories.</li>
+  </ul>
+
+  <h3><a name="RHF" id="RHF">Right-Hand Frame</a></h3>
+
+  <p>The right-hand frame displays actual assertions in the
+  CYC&reg; KB.</p>
+
+  <p>The constant being displayed is listed at the top of the
+  frame. When "Definitional Info" is selected in the index, below
+  the constant additional information will be listed: the unique
+  constant ID number, "PUBLIC" if it's a public constant, "CODE" if
+  the constant is mentioned in SubL code.</p>
+
+  <p>Clicking on the colored ball in front of an assertion brings
+  up the assertion display page, where various operations can be
+  performed on the assertion. See the <a href=
+  "/cycdoc/help/browser-icon-key.html" target="documentation-window">Key for
+  Icons in the Browser</a> for an explanation of the colored balls
+  and other icons.</p>
+
+  <p>Unlike in the index in the left-hand frame, clicking on
+  highlighted constant names in the right-hand frame will bring up
+  the KB Browser display for that constant.</p>
+
+  <p>Assertions are grouped by the microtheory in which they are
+  asserted. Most assertions are written in standard CycL. However,
+  "Definitional Info" is listed in an easy-to-read frame-slot
+  format like this:</p>
+  <pre>
+  Arg : 1
+
+  Mt: BaseKB
+  isa: Collection
+  genls: Individual
+</pre>Since the assertions are in the "Arg 1" section, the constant
+is in the first argument position for the given relation; under
+"Arg 2", the second. Thus the above format represents the
+assertions:
+  <pre>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> constant <a href="/cycdoc/vocab/fundamental-vocab.html#Collection">#$Collection</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> constant <a href="/cycdoc/vocab/fundamental-vocab.html#Individual">#$Individual</a>) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+  (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a> <a href=
+"/cycdoc/vocab/biology-vocab.html#Mammal">#$Mammal</a> constant) in <a href="/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>
+</pre>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

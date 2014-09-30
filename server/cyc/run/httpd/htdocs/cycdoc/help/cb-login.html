@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Login Area Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Login Area
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This page allows CYC&reg; users to login to their CYC&reg;
+  image, as well as lists what users are currently logged in to the
+  image.</p>
+
+  <p>When a new CYC&reg; image is started, the user is initially
+  logged in with the default login constant for that copy of
+  CYC&reg;, such as #$HPKB-User or #$CYC-User. If no such default
+  exists, the user will initially be logged in as #$Guest. Guests
+  are allowed to browse the CYC&reg; KB, but not to perform any
+  operations on it, such as editing an assertion, creating new
+  constants, halting the image, etc. In order to gain full access,
+  it is necessary to login to the CYC&reg; image using your
+  CYC&reg; constant. Users logged in with a default login constant
+  (not #$Guest) do have full access, but it's still a good idea to
+  login with your own CYC&reg; constant.</p>
+
+  <h3><a name="login">Logging In</a></h3>
+
+  <p>To access the Login Area, click on the Login link in the
+  Toolbar frame at the top of the screen. The first line of the
+  login page shows what your current login is. If you have just
+  started up the image, this will either say "Guest" or the name of
+  the default login constant; likewise if this is the first time
+  you are accessing from your machine an image that someone else
+  has started up elsewhere.</p>
+
+  <p>To change identities (including from or to #$Guest), enter the
+  name of your CYC&reg; constant in the type-in pane provided
+  (minus the "#$"), then press the (<i>Submit</i>) button. For
+  example, the user Fred Smith might be represented in the KB as
+  #$FredSmith. To login, Fred would type "FredSmith" in the input
+  window.</p>
+
+  <p>If you do not currently have a CYC&reg; constant, you can
+  create one as follows:</p>
+
+  <ul>
+    <li>People logged in as #$Guest cannot create new constants,
+    and so should find someone who does have a CYC&reg; constant
+    and have them login. Users logged in with the default login
+    constant can skip this step.</li>
+
+    <li>Type into the window the name you'd like for your CYC&reg;
+    constant (remembering that constant names for <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#Individual">#$Individual</a>s
+    such as people should start with a capital letter); CYC&reg;
+    will respond with the message "Unknown Cyclist" and ask if you
+    want to create a new CYC&reg; constant with that name. Click on
+    "Yes" to confirm and create the constant, "No" to return to the
+    Login Area without creating it.</li>
+  </ul>
+
+  <p><b>Note:</b> Creating a new user constant is the same as
+  performing any other operation on the CYC&reg; KB: the change is
+  only to the local image unless it's transmitted at some point. If
+  you want your constant to become part of CYC&reg; (if you're
+  using a distributed AI architecture, like at Cycorp), be sure
+  that you are in a mode that will allow transmission of operations
+  to the master transcript. The recommended way to do this is to
+  set the communication mode to Storing and Receiving, create your
+  constant, go to the Communication page and select "Send stored
+  operations now", and click on the "Submit" button. Alternately,
+  you can set the communication mode to Sending and Receiving from
+  the beginnning. If for some reason you create your constant and
+  then restart your image prior to the next dump, you won't be able
+  to log in using your new constant until your machine has received
+  the creation operation from the master transcript. Remember that
+  you'll have to switch to a receiving mode to get any operations.
+  Do not create yourself a second time, as this will cause an
+  error. For details on transcripts, communication modes, and
+  dumps, see <a href="/cycdoc/ref/system.html">The CYC&reg; Agenda and
+  CYC&reg; Transcripts</a>. For help changing communication modes,
+  click on the "Mode" link in the Agenda Status Bar and see the
+  <a href="/cycdoc/help/cb-mode.html">New Mode Area Help</a> available
+  there.</p>
+
+  <h3><a name="projects">Selecting a Project</a></h3>
+
+  <p>Certain versions of CYC&reg; will allow the user to select a
+  project heading under which KE work should be logged. If this
+  feature is available, the link "Current Project" will appear
+  below the user login section, with the currently selected project
+  listed to the right of the link. The default value is "General
+  Cyc KE". To select a new project heading, simply click on the
+  "Current Project" link to go to the Choose KE Project page, then
+  select a project from the list shown. To see a full desciption in
+  the CYC&reg; KB of the current project (when other than "none"),
+  click on the project name itself.</p>
+
+  <h3><a name="users">Sharing a CYC&reg; Image</a></h3>
+
+  <p>At the bottom of the page is a list of users who are logged
+  into the current image. Both their username and machine are
+  listed. This is important because two users on the same image
+  will share transcripts, communication modes, etc, and so it is
+  necessary to coordinate knowledge entry between users of a shared
+  image. (Simply browsing on a shared image presents no
+  complications, however.)</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

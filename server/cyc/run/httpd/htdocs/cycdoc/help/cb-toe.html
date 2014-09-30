@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Template-based OE Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Template-based OE
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Template-Based OE tool (or "TOE") harnesses the Cyc&reg;
+  inference engine to enable users to do batch KE operations. By
+  formulating a query in the syntax of CycL (see <a href=
+  "/cycdoc/ref/cycl-syntax.html">The Syntax of CycL</a>) on the TOE, a
+  user can produce a list of CycL terms that can be passed through
+  an OE template, thereby generating a batch of "kill", "assert",
+  "unassert", or "blast" operations.</p>
+
+  <h3><a name="specifying">Specifying a Query</a></h3>
+
+  <p>To use the TOE, the user first formulates a query on the
+  "Query Specification" page of the TOE. The bindings returned by
+  this query can be passed through one of the OE templates that are
+  available from the TOE.</p>
+
+  <p>The "Query Specification" page of the TOE works in a manner
+  that is very similar to the way the Ask tool works (see the
+  <a href="/cycdoc/help/cb-handle-ask.html">Ask a Query</a> help page) -- the
+  TOE query specification is formulated in exactly the same way a
+  Ask tool query specification is formulated, and a TOE query
+  specification is handed to the Cyc inference engine with query
+  parameters set to 0 backchains, a number cutoff of "get
+  everything", a time cutoff of "run forever", and a depth cutoff
+  of "infinite depth".</p>
+
+  <p>To formulate a query specification for the TOE, the user
+  enters the microtheory in which the query is to run in the "Mt:"
+  window. It doesn't matter whether the Mt name is typed with or
+  without "#$" before it. The CycL query to be run is entered into
+  the "Formula" input window. In this window, constant names
+  require their "#$" prefixes. The [<i>Cyclify</i>] button adds
+  "#$" before each valid constant name in the window. Pressing the
+  [<i>Complete</i>] button next to either the Mt or Formula window
+  finishes a partially typed constant name in the respective
+  window. (In the Formula window, Complete works only on the last
+  term in the window.) If the typed string has multiple
+  completions, Complete displays a list of possible choices in a
+  separate Completions window.</p>
+
+  <p>Once the user has formulated a query and entered the name of
+  the microtheory in which the query is to be asked, there are 5
+  options: the user can press [<i>Run Query</i>], or the user can
+  choose from among the "Available Templates:" buttons, which are
+  [<i>Assert</i>], [<i>Unassert</i>], [<i>Blast</i>],
+  [<i>Kill</i>].</p>
+
+  <h3>Running a Query</h3>Clicking on the [<i>Run Query</i>] button
+  queries Cyc about the formula in the microtheory specified, and
+  returns the results as a list of bindings that are printed to the
+  interface. Using the [<i>Run Query</i>] button is a good way for
+  the user to test the query that has been entered to see if it
+  returns the results the user expects. For example, if the user
+  asks for all the specializations of #$Dog that are known in the
+  #$BaseKB by entering "#$BaseKB" in the "Mt:" window and "(#$genls
+  ?X #$Dog)" in the "Query Specification:" window and pressing the
+  [<i>Run Query</i>] button, the user will be taken to a new page
+  that looks like this:
+  <pre>
+
+       Query Results
+
+       3 Answers     ?X
+
+       [Explain #1]  Dog
+       [Explain #2]  (FemaleFn Dog)
+       [Explain #3]  (JuvenileFn Dog)
+
+       [Examine the inference tree]
+       
+</pre>If these are the bindings the user expects, then the user
+should return to the "Query Specification" page of the TOE in order
+to to use one of the available templates.
+
+  <h3>Available Templates</h3>Once the user has formulated a query
+  and entered the name of the microtheory in which the query is to
+  be asked, the user may generate a batch KE operation by selecting
+  from among 4 of the "Available Templates:" buttons, which are
+  [<i>Kill</i>], [<i>Assert</i>], [<i>Unassert</i>], and
+  [<i>Blast</i>].
+
+  <h3>The [<i>Kill</i>] Template</h3>Clicking on the [<i>Kill</i>]
+  button on the "Query Specification" page queries Cyc about the
+  formula in the microtheory specified, and enters each binding as
+  a replacement for X in an OE template of the form: (KE-KILL X).
+  The resultant operations are printed to the interface and the
+  user can select from among them which ones are to be processed.
+  Thus, if the user asks for all the specializations of #$Dog that
+  are known in the #$BaseKB by entering "#$BaseKB" in the "Mt:"
+  window and "(#$genls ?X #$Dog)" in the "Query Specification:"
+  window and pressing the [<i>Kill</i>] button, the user will be
+  taken to a new page that looks like this:
+  <pre>
+
+   Resulting Forms
+
+   Current query in BaseKB :
+   (genls ?X Dog)
+   
+   [Add Forms to Agenda]
+    
+   Operations:                              OK?
+   (KE-KILL (JuvenileFn Dog))               [x]
+   (KE-KILL (FemaleFn Dog))                 [x]
+   (KE-KILL Dog)                            [x] 
+
+</pre>The user can add all of the selected operations to the agenda
+by pressing [<i>Add Forms to Agenda</i>]. An operation counts as
+"selected" if the box in its row under "OK?" is clicked. By
+default, all of the operations are selected.
+
+  <h3>The [<i>Assert</i>] Template</h3>Clicking on the
+  [<i>Assert</i>] button on the "Query Specification" page stores
+  the query and takes the user to a template-building "Assert
+  Specification" page. To formulate an assert specification for the
+  TOE, the user enters the microtheory in which the assertion is to
+  be made in the "Mt:" window. As on the "Query Specification"
+  page, it doesn't matter whether the Mt name is typed with or
+  without "#$" before it. The assertion template is entered into
+  the "EL Formula" input window. In this window, constant names
+  require their "#$" prefixes. The [<i>Cyclify</i>] button adds
+  "#$" before each valid constant name in the window. Pressing the
+  [<i>Complete</i>] button next to either the Mt or Formula window
+  finishes a partially typed constant name in the respective
+  window. In the Formula window, Complete works only on the last
+  term in the window. If the typed string has multiple completions,
+  Complete displays a list of possible choices in a separate
+  Completions window.
+
+  <p>Once the assertion specification has been entered, the user
+  presses the [<i>Run Template Assert</i>] button. Pressing this
+  button causes Cyc to run the query that was entered at the "Query
+  Specification" page and then to insert the bindings that are
+  returned in the matching variable-slots of the assertion
+  specification. Thus, if the query is of the form
+  (<i>predicate1</i> <i>bound-argument</i> ?X) and the assert
+  template is of the form (<i>predicate2</i> <i>bound-argument</i>
+  ?X) in the microtheory <i>mt</i>, each binding returned by the
+  query will be inserted as a replacement for X in an OE template
+  of the form: (KE-ASSERT '(<i>predicate2</i> <i>bound-argument</i>
+  X) '<i>mt</i> ':DEFAULT ':FORWARD). Thus, if the user asks for
+  all the specializations of #$Dog that are known in the #$BaseKB
+  by entering "#$BaseKB" in the "Mt:" window and "(#$genls ?X
+  #$Dog)" in the "Query Specification:" window and pressing the
+  [<i>Assert</i>] template button, then enters "#$BaseKB" and
+  "(genls ?X #$Thing)" on the "Assert Specification" page, the user
+  will be taken to a new page that looks like this:</p>
+  <pre>
+ 
+   Resulting Forms
+
+   Current query in BaseKB :
+   (genls ?X Dog)
+
+   Current Assert Template in BaseKB :
+   (genls ?X Thing)
+
+   Operations:                                                                       OK?
+   (KE-ASSERT '(genls (JuvenileFn Dog) Thing) 'BaseKB ':DEFAULT ':FORWARD)           [x]
+   (KE-ASSERT '(genls (FemaleFn Dog) Thing) 'BaseKB ':DEFAULT ':FORWARD)             [x]
+   (KE-ASSERT '(genls Dog Thing) 'BaseKB ':DEFAULT ':FORWARD)                        [x]  
+
+</pre>The user can add all of the selected operations to the agenda
+by pressing [<i>Add Forms to Agenda</i>]. An operation counts as
+"selected" if the checkbox in its row under "OK?" is checked. By
+default, all of the operations are selected.
+
+  <h3>The [<i>Unassert</i>] Template</h3>Clicking on the
+  [<i>Unassert</i>] button on the "Query Specification" page stores
+  the query and takes the user to a template-building "Unassert
+  Specification" page. Working with unassert templates is just like
+  working with assert templates (see above), except the template
+  specified is used to form unassert operations instead of assert
+  operations. Thus, if the query entered on the "Query
+  Specification" page is of the form (<i>predicate1</i>
+  <i>bound-argument</i> ?X) and the unassert template entered on
+  the "Unassert Specification" page the is of the form
+  (<i>predicate2</i> <i>bound-argument</i> ?X) in the microtheory
+  <i>mt</i>}, each binding returned by the query will be inserted
+  as a replacement for X in an OE template of the form:
+  (KE-UNASSERT '(<i>predicate2</i> <i>bound-argument</i> X)
+  '<i>mt</i>). Thus, if the user asks for all the specializations
+  of #$Dog that are known in the #$BaseKB by entering "#$BaseKB" in
+  the "Mt:" window and "(#$genls ?X #$Dog)" in the "Query
+  Specification:" window and pressing the [<i>Unassert</i>]
+  template button, then enters "#$BaseKB" and "(genls ?X #$Dog)" on
+  the "Unassert Specification" page, the user will be taken to a
+  new page that looks like this:
+  <pre>
+ 
+   Resulting Forms
+  
+   Current query in BaseKB :
+   (genls ?X Dog)
+
+   Current Unassert Template in BaseKB :
+   (genls ?X Dog)
+
+   Operations:                                                                       OK?
+   (KE-UNASSERT '(genls (JuvenileFn Dog) Dog) 'BaseKB)                               [x]
+   (KE-UNASSERT '(genls (FemaleFn Dog) Dog) 'BaseKB)                                 [x]   
+   (KE-UNASSERT '(genls Dog Dog) 'BaseKB)                                            [x] 
+
+</pre>The user can add all of the selected operations to the agenda
+by pressing [<i>Add Forms to Agenda</i>]. An operation counts as
+"selected" if the box in its row under "OK?" is clicked. By
+default, all of the operations are selected.
+
+  <h3>The [<i>Blast</i>] Template</h3>Clicking on the
+  [<i>Blast</i>] button on the "Query Specification" page stores
+  the query and takes the user to a template-building "Unassert
+  Specification" page. Working with blast templates is just like
+  working with unassert templates, except that the forms generated
+  are blast operations instead of unassert operations. Blasting is
+  like unasserting, but it is slightly more general since
+  unasserting directly removes only asserted assertions whereas
+  blasting removes not only asserted assertions but also assertions
+  that are deduced (e.g., the cached consequences of forward
+  rules).
+
+  <p>Thus, if the query entered on the "Query Specification" page
+  is of the form (<i>predicate1</i> <i>bound-argument</i> ?X) and
+  the blast template entered on the "Blast Specification" page the
+  is of the form (<i>predicate2</i> <i>bound-argument</i> ?X) in
+  the microtheory <i>mt</i>, each binding returned by the query
+  will be inserted as a replacement for X in an OE template of the
+  form: (FI-BLAST '(<i>predicate2</i> <i>bound-argument</i> X)
+  '<i>mt</i>). Thus, if the user asks for all the specializations
+  of #$Dog that are known in the #$BaseKB by entering "#$BaseKB" in
+  the "Mt:" window and "(#$genls ?X #$Dog)" in the "Query
+  Specification:" window and pressing the [<i>Blast</i>] template
+  button, then enters "#$BaseKB" and "(genls ?X #$Dog)" on the
+  "Blast Specification" page, the user will be taken to a new page
+  that looks like this:</p>
+  <pre>
+ 
+   Resulting Forms
+  
+   Current query in BaseKB :
+   (genls ?X Dog)
+
+   Current Unassert Template in BaseKB :
+   (genls ?X Dog)
+
+   Operations:                                                                       OK?
+   (FI-BLAST '(genls (JuvenileFn Dog) Dog) 'BaseKB)                                  [x]
+   (FI-BLAST '(genls (FemaleFn Dog) Dog) 'BaseKB)                                    [x]
+   (FI-BLAST '(genls Dog Dog) 'BaseKB)                                               [x] 
+
+</pre>The user can add all of the selected operations to the agenda
+by pressing [<i>Add Forms to Agenda</i>]. An operation counts as
+"selected" if the checkbox in its row under "OK?" is checked. By
+default, all of the operations are selected.
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

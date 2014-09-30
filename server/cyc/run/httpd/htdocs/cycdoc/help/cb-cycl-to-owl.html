@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>OWL Exporter Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0" alt=
+  "the Cyc logo"></a>OWL Exporter Help</h2>E-Mail Comments to:
+  <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Cyc OWL Ontology Exporter is a tool for creating an OWL
+  file from an OWL ontology specification in a Cyc KB. A Cyc term
+  representing the OWL ontology itself is specified for export,
+  and each term defined in the OWL ontology is exported to the
+  OWL file.  Alternatively, a list of Cyc terms can be specified
+  instead on the ontology term.</p>
+
+  <h3><a name="uri" id="uri">Export URI</a></h3>
+
+  <p>Each OWL ontology should have a globally unique, persistent
+  uniform resource identifier (URI) by which it can be referenced
+  and this is specified with a baseNamespaceForSKS assertion.  If
+  this assertion is missing or you just want to specify a
+  different URI, you may.</p>
+
+  <h3><a name="terms" id="terms">Exporting owl:sameAs triples</a></h3>
+
+  <p>For each exported term, you can specify one or more
+  alternate URIs that will be exported for that term as and
+  owl:sameAs triple.  Supported URIs include Readable OpenCyc
+  URIs (when applicable), Cyc Compact External ID URIs, and
+  DBpedia URIs (when applicable).</p>
+
+  <h3><a name="terms" id="terms">Additional export options</a></h3>
+  
+  <p>Exporting additional triples for providing #$comment information 
+  and "prettyString" lexifications is supported.</p>
+  
+  <p>When desiring a more precise export, choosing "Restrict
+  export to only assertions in the ontology microtheory" will
+  only export assertion specified in the precise microtheory of
+  the onology (or the overriding mt if specified.)</p>
+
+  <p>Complex OWL restrictions are imported as both a complex term
+  and as derived rule macro predicate assertions.  Selecting
+  "Suppress export of derived knowledge" will ignore the derived
+  knowledge and can result in a more verbatim export of an
+  import.</p>
+
+  <p>For more information about OWL, consult the <a href=
+  "http://www.w3.org/TR/owl-ref/">World Wide Web Consortium OWL
+  Reference</a>.</p>
+
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border="0"
+  alt="a light-blue ball">Go to Top</a><br>
+</body>
+</html>

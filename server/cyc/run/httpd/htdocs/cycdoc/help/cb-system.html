@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>System Area Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>System Area
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The System Area provides detailed information about the system
+  settings of the current CYC&reg; image, operations queues, and
+  transcripts, as well as allowing the user to perform operations
+  such as halting the CYC&reg; image or loading CYC&reg;
+  patches.</p>
+
+  <h3><a name="settings">System Settings</a></h3>
+
+  <p>"Current machine" shows the machine the CYC&reg; image is
+  running on.</p>
+
+  <p>"Current image number" shows the particular image number
+  (uniquely identified by the date the CYC&reg; image was started
+  up on this particular machine). For example,</p>
+  <pre>
+        CLIO-1-19970505093744
+</pre>means that the CYC&reg; image was started up on Clio on May
+5, 1997 at 9:37:44am.
+
+  <p>"Image start time" displays the date and time the image was
+  started and how long the image has been up and running.</p>
+
+  <p>"Current KB" lists the current version of the Knowledge Base,
+  and will be updated when KB operations are loaded into the
+  current CYC&reg; image. Generally, a new CYC&reg; image will be
+  started up with a whole-number KB version (this number appears
+  next to "KB" in the System Status frame at the bottom of the
+  screen). Then, the number to the right of the decimal will match
+  the total number of trancript operations that have been read
+  (line #1 below). For example,</p>
+  <pre>
+        93.1064
+</pre>would usually mean that the current image was started up with
+KB 93, and a total of 1064 operations have been read (but not
+necessarily processed). To see how many operations have been
+processed, see the <a href="#queues">Operations Queues</a> section
+below for an explanation.
+
+  <p>"System and patch level" lists the current version of the SubL
+  code, including the patch level. For example,</p>
+  <pre>
+        41.19
+</pre>means that the CYC&reg; image is based on version 41 of the
+SubL code, and the patch level (number of updates to this version
+of the SubL code) is 19.
+
+  <p><b>C, NT, LISP (LispWorks/Allegro) images:</b> clicking on
+  "here" in the tagline at the bottom of this section will halt the
+  CYC&reg; image; there is a safety confirmation built into this
+  option, since unintentionally halting the CYC&reg; image will
+  most likely have undesired consequences. LISP (Genera) images are
+  generally not halted using the HTML interface; instead, LISP
+  (Genera) machines are controlled via the command line interface
+  on the LISP machine, which is best left up to those familiar with
+  the LISP (Genera) machines.</p>
+
+  <p><b>LISP (Genera) images:</b> clicking on "here" in the tagline
+  at the bottom of this section will load patches, effectively
+  bringing the SubL code up-to-date for the CYC&reg; image. Loading
+  patches is part of the CYC&reg; Agenda's job, though it is
+  occasionally necessary or desirable to load them by hand. C, NT,
+  and LISP (LispWorks/Allegro) images do not load patches, instead
+  catching up when a new world is built at compile time.</p>
+
+  <h3><a name="queues">Queue Information</a></h3>
+
+  <p>This section offers a more detailed description of the
+  operations queues that appear in the Agenda Status Bar. There are
+  3 queues,</p>
+
+  <ul>
+    <li>Remote: operations originating on other machines.</li>
+
+    <li>Local: operations originating on the local CYC&reg;
+    image.</li>
+
+    <li>Auxiliary: special queue for use during KB dumps.</li>
+  </ul>broken up into 3 sections, starting at the top:
+
+  <ol>
+    <li>Remote
+
+      <ul>
+        <li>The number of operations from the remote queue that
+        have been read but not yet processed. These operations will
+        not yet have had any effect on the local image.</li>
+
+        <li>The total number of operations processed by the local
+        CYC&reg; image, regardless of origin. This includes both
+        remote and local operations, regardless of whether they
+        caused an error in the CYC&reg; Agenda.</li>
+      </ul>
+    </li>
+
+    <li>Local
+
+      <ul>
+        <li>The number of operations on the local queue which have
+        yet to be processed. These operations will not yet have had
+        any effect on the local image.</li>
+
+        <li>The number of operations which have been processed by
+        the local image, but not yet recorded. The changes effected
+        by these operations will be evident in the local
+        image.</li>
+
+        <li>The number of operations originating in the local
+        CYC&reg; image that have been processed and recorded. Only
+        operations showing up here will be added to the master
+        transcript if processed operations are sent.</li>
+      </ul>
+    </li>
+
+    <li>Auxiliary (will only appear if queue is non-empty)
+
+      <ul>
+        <li>The number of operations from the auxiliary queue that
+        have been processed by the local image.</li>
+
+        <li>The number of operations from the auxiliary queue that
+        have been read but not yet processed. These operations will
+        not yet have had any effect on the local image.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3><a name="transcripts">Transcript
+  Information</a></h3>Depending on the communication status,
+  operations processed by a CYC&reg; image may be written out to a
+  special file called a transcript file. For every image, there are
+  two relevant kinds of transcript files:
+
+  <ul>
+    <li>Master Transcript: the trancript file common to all
+    CYC&reg; images on a given network. Processed operations which
+    are transmitted are added to this file. Operations received
+    from others are read from this file.</li>
+
+    <li>Local Transcript: the transcript file specifically for the
+    local image.to which the CYC&reg; Agenda is writing operations.
+    If the Agenda is storing operations for later, locally
+    originating processed operations will be written to this file.
+    This filename is often the one to use when loading a transcript
+    manually via the "Load Transcript File" link in the CYC&reg;
+    Navigator.</li>
+  </ul>
+
+  <p>To view the contents of either the Master or Local Transcript,
+  simply click on the highlighted name. A word of caution: the
+  master transcript can get a bit long, and so may take some time
+  to load.</p>
+
+  <p>Below the name of the Master Transcript, the number of
+  characters and estimated number of operations in the transcript
+  are displayed. The actual number of operations read is listed as
+  well.</p>
+
+  <p>Below the name of the Local Transcript, the number of
+  operations in the file is listed.</p>
+
+  <p>If either transcript has 0 operations, it is empty.</p>
+
+  <h3><a name="history">Historical Information</a></h3>At the
+  bottom of the System Area, a summary of queue/transcript
+  information is presented:
+
+  <ul>
+    <li>Total number of operations from the remote queue that were
+    processed by the local image.</li>
+
+    <li>Total number of operations from the local queue that were
+    processed by the local image.</li>
+
+    <li>Total number of operation that originated in the local
+    image that were sent to the Master Transcript.</li>
+
+    <li>Total number of operations from the auxiliary queue that
+    were processed by the local image.</li>
+  </ul>For details on communication status settings and transcript
+  files, see the <a href="/cycdoc/ref/system.html">CYC&reg; Agenda and
+  Transcripts Documentation</a>.
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

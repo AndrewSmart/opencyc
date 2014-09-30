@@ -1,0 +1,80 @@
+/*
+use xb settings to make ul/li appear the 
+same in mozilla, ie and opera
+*/
+
+ul.nde-menu-system, ul.nde-menu-system ul
+{
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: aqua;
+}
+
+ul.nde-menu-system li
+{
+  margin: 0;
+}
+
+/* 
+top level items in ul are inline to display horizontally 
+across page
+*/
+
+ul.nde-menu-system li
+{
+  display: inline;
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+nested lists inside of the top level items are initially 
+not displayed
+*/
+ul.nde-menu-system li ul
+{
+  display: block;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+  width: 9em;
+  z-index: 1000;
+}
+
+/*
+fix up the submenu items
+voice-family lines screen correct CSS values from browsers that
+improperly lay out block-level boxes and have broken CSS parsers
+(IE5.5/Win)
+*/
+ul.nde-menu-system li ul li
+{
+  margin: 0 0 0 -1.5em;
+  padding: 0;
+  display: block;
+  width: 100%;
+  voice-family: "\"}\""; voice-family: inherit;
+  margin-left: 0;
+}
+
+ul.nde-menu-system li ul li a
+{
+  display: block;
+  margin: 0;
+  padding: 0 0 0 5%; 
+  width: 100%;
+  voice-family: "\"}\""; voice-family: inherit;
+  width: 95%;
+}
+
+/* needed to keep IE from bubbling events
+from items that are not contained but only
+covered. */
+ul.nde-menu-system
+{
+  background-color: navy;
+}
+

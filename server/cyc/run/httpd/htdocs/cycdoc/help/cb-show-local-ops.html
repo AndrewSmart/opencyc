@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Local Operations Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Local Operations
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Local Operations page displays the (unprocessed) contents
+  of the local queue, and allows the user to clear the contents of
+  the queue, if desired. This page will only be accessible when
+  there are operations in the local queue that have not been
+  processed yet.</p>
+
+  <h3><a name="contents">Viewing the Local Queue</a></h3>
+
+  <p>The Local Operations page displays two things:</p>
+
+  <ul>
+    <li>The number of (still unprocessed) operations currently in
+    the local queue.</li>
+
+    <li>The operations themselves, in order. The first operation in
+    the queue will be the next one processed, the last one in the
+    queue will be the last one processed, etc.</li>
+  </ul>
+
+  <h3><a name="clear">Clearing the Local Queue</a></h3>
+
+  <p>Sometimes it is desirable to clear the entire contents of the
+  local queue. The most common situation where this might be
+  desired is when:</p>
+
+  <ol>
+    <li>A local operation causes the Agenda to halt (i.e., causes
+    an error). You can tell this by going to the Agenda Process
+    Control, accessible via the "Agenda" link in the Agenda Status
+    Bar.</li>
+
+    <li>The operations in the rest of the queue depend upon the
+    first operation being processed, and may cause errors
+    themselves if allowed to go through without the first one
+    working.</li>
+  </ol>
+
+  <p>To clear all of the operations in the local queue, press the
+  [<i>Clear Local Queue</i>] button. A confirmation page is
+  provided in case the user decides not to delete the entire queue
+  after all.</p>
+
+  <p>Note that this will clear every operation in the queue. If
+  there are some that you wish to save for entry later, you may
+  want to copy them to a temporary file. To abort out of any
+  error-causing operation (instead of clearing the entire queue),
+  go to the Agenda Process Control and start the Agenda up again.
+  The operation that caused the error will be aborted. (This only
+  works if the Agenda is in "Halt and Display Reason" mode. If the
+  error handling mode is set to "Enter the Debugger", the operation
+  must be dealt with in the window where the CYC&reg; process was
+  started up--most likely an emacs window.)</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

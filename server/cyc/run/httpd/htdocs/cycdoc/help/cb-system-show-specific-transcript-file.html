@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Transcript File Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Transcript File
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This page lists the filename of a selected transcript file as
+  well as any operations which have been saved to that file. If no
+  operations have yet been saved, a message to that effect will
+  appear.</p>
+
+  <p><b>IMPORTANT! A transcript file should never be edited except
+  by an experienced Cyclist in an emergency situation. This goes
+  double for the master transcript.</b> If a transcript file must
+  be edited, be sure that:</p>
+
+  <ul>
+    <li>All parentheses are balanced.</li>
+
+    <li>Any transcript form that is removed is COMLETELY removed.
+    This includes the timestamp for that operation.</li>
+  </ul>
+
+  <h3><a name="read">Reading a Transcript File</a></h3>
+
+  <p>Operations in a transcript file are written in the order that
+  they were recorded. Thus, newly recorded operations will appear
+  at the end of a transcript file.</p>
+
+  <p>Every operation or operation-pair is followed by a timestamp
+  operation which records when that operation was processed. Thus
+  the assertion of a new formula is actually two operations (the
+  assertion plus its timestamp), while an assertion edit is three
+  (the deletion, reassertion, and timestamp). The timestamp
+  operations are included in the operation counts that appear in
+  the Agenda Status Bar under the headings "Remote" and
+  "Local".</p>
+
+  <p>Let's say user #$JoeSmith asserts (<a href=
+  "/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> #$Fred
+  HumanAdult) in the #$PeopleDateMt. This would appear in the
+  transcript file as:</p>
+  <pre>
+  (:HP "Guest" 153344) "WILLY-599-19970630100940" 19970630 
+    (FI-ASSERT 
+    '(
+      (:HP "isa" 260) 
+        (:HP "Fred" 537024) 
+        (:HP "HumanAdult" 13049)) 
+    '(:HP "CyclistsMt" 50975076) ':DEFAULT ':FORWARD))
+
+  ((:HP "Guest" 153344) "WILLY-599-19970630100940" 19970630 
+    (FI-TIMESTAMP-ASSERTION 
+    '(:HP "JoeSmith" 537024) '19970630))
+</pre>
+
+  <ul>
+    <li>"Guest" refers to the overall owner of the operation. The
+    overall owner usually be "Guest" and is nothing to be concerned
+    about.</li>
+
+    <li>"WILLY-599-19970630100940" is the CYC&reg; Image on which
+    the operation was performed.</li>
+
+    <li>(FI-ASSERT...:FORWARD)) is the assertion itself, including
+    Mt, truth value, and direction. Every constant in the assertion
+    is followed by its unique constant id.</li>
+
+    <li>The second form is the timestamp information for the first
+    operation. "JoeSmith" is the performer of the operation, and
+    "19970630" is the date on which the operation was
+    performed.</li>
+  </ul>
+
+  <h3><a name="load">Loading a Transcript File</a></h3>
+
+  <p>Operations in the current local transcript can be sent to the
+  Master Transcript simply by sending stored operations from the
+  Communication Status Area. However, it is sometimes desirable to
+  load a transcript manually. Examples of transcripts to be loaded
+  manually include: transcripts from a previous CYC&reg; image,,
+  transcripts containing operations that were cleared instead of
+  being sent to the Master Transcript, or transcripts from other
+  CYC&reg; images whose operations have never been sent to the
+  Master Transcript, but it's desirable to have them included in
+  the current local image. Manually loaded transcripts can be
+  loaded up on the local machine and sent (or not) at a later time;
+  the user is never committed to sending operations unless the
+  communication status is set to "Send Immediately".</p>
+
+  <p>To manually load a transcript file, select the "Navigator"
+  link from the Toolbar Frame or the Browser Tools page. Click on
+  "Load Transcript File" in the "File Handling" section and follow
+  the instructions there.</p>
+
+  <p>For more detailed information on CYC&reg; transcripts, see the
+  <a href="/cycdoc/ref/system.html#transcripts">CYC&reg; Transcript
+  Documentation</a>.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

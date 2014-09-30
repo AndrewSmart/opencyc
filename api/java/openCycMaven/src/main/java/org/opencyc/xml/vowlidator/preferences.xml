@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE validator-preferences SYSTEM "validator.dtd">
+<validator-preferences>
+
+<cache
+  original="http://www.w3.org/2001/03/XMLSchema.xsd"
+  file="file:cache\www_w3_org_2001_03_XMLSchema.xsd"
+/>
+
+<cache
+  original="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  file="file:cache/www.w3.org_1999_02_22-rdf-syntax-ns"
+/>
+
+<cache
+  original="http://www.w3.org/2000/01/rdf-schema#"
+  file="file:cache/www.w3.org_2000_01_rdf-schema"
+/>
+
+<cache
+  original="http://www.w3.org/2001/XMLSchema.xsd"
+  file="file:cache\www_w3_org_2001_XMLSchema.xsd"
+/>
+
+<cache
+  original="http://www.w3.org/2002/07/owl#"
+  file="file:cache/www.w3.org_2002_07_owl"
+/>
+
+</validator-preferences>

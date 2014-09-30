@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Load API Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Load API
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Load API Expressions Page allows the user to load a file
+  of SubL forms (e.g., ke-assert, ke-unassert, ke-create,
+  ke-rename, etc.), to be processed by the CYC&reg; Agenda. Forms
+  in the file will be loaded and executed one by one. This is very
+  similar to dropping the forms one at a time into the SubL
+  Interactor. The benefit of using Load API is that an entire file
+  can be loaded at once, thus speeding up the knowledge-entry
+  process.</p>
+
+  <h3><a name="loading">Loading a File</a></h3>
+
+  <p>To load a file for evaluation, enter a filename in the input
+  window (e.g., /foo/bar/bam.text). Then press the [<i>Load
+  File</i>] button. Forms from the file will be loaded and executed
+  one by one until the program either:</p>
+
+  <ul>
+    <li>Encounters an FI error</li>
+
+    <li>Successfully processes all loaded operations</li>
+  </ul>
+
+  <p>These two situations are described in the <a href=
+  "#results">Understanding the Results</a> section below.</p>
+
+  <p>To clear the input window and start over, press the
+  [<i>Clear</i>] button.</p>
+
+  <h3><a name="results">Understanding the Results</a></h3>
+
+  <p>Results of the load will be printed on the API Load Results
+  page.</p>
+
+  <p>The name of the loaded file will be listed, along with a
+  summarization of the results (i.e., whether all operations were
+  processed, or whether an error was encountered which caused the
+  load to halt). If the entire file was loaded successfully, no
+  more information will be listed on this page. If an error was
+  encountered, the error will be listed and explained, and the user
+  will have the option of continuing to load the file. (The
+  offending operation can be included or excluded during
+  continuation; see the <a href="#form-number">Form Number</a>
+  section below for details.)</p>
+
+  <h4><a name="error">The Error</a></h4>
+
+  <p>If an error caused the load to halt, you'll see a message
+  like:</p>
+
+  <blockquote>
+    "An error occurred after processing 3 forms."<br>
+    Last operation: (KE-CREATE "Collection") Already a constant
+    called Collection
+  </blockquote>The number returned is the number of successful
+  operations executed before the error occurred. This number does
+  not include the error itself. Thus in the example above, 3
+  operations were successfully processed before the error.
+
+  <p>"Last operation" lists the operation which caused the error,
+  followed by an explanation of why the error occurred. In the
+  example above, creation of the constant <a href=
+  "/cycdoc/vocab/fundamental-vocab.html#Collection">#$Collection</a>
+  caused an error because there was already a constant by that name
+  in the KB.</p>
+
+  <h4><a name="form-number">Form Number</a></h4>
+
+  <p>The Form Number is the number of operations to skip when
+  continuing with the file load. For example, a Form Number of 17
+  would cause the program to skip the first 17 forms in the file,
+  and begin by processing the 18th form.</p>
+
+  <p>The default value for this window will be the total number of
+  operations processed in the file before the error occurred. So in
+  the example in the <a href="#error">Error</a> section above, the
+  default value would be 3. Simply continuing without changing this
+  number or fixing the error will cause the load to stop at the
+  same place again. Thus there are two options:</p>
+
+  <ul>
+    <li><i>Fix the error:</i> if you fix (or comment out) the error
+    in the file and want to try again, leave the Form Number at its
+    default value. Be sure to save the file after making any
+    changes.</li>
+
+    <li><i>Skip the offending operation and start with the next
+    one:</i> to do this, simply add 1 to the default value.</li>
+  </ul>
+
+  <h4><a name="file">KE File Name</a></h4>
+
+  <p>The KE File Name lists the file to load on the next try. In
+  most cases, this will be the same file as before, and this input
+  window should be left as is. If you do want to load a different
+  file than the previous one, simply change the filename in the
+  input window. In this case, be sure to change the Form Number to
+  0, to ensure that the new file is loaded from the beginning.</p>
+
+  <p>To continue loading the original file (after fixing the error
+  or changing the Form Number), or to load a new file (after
+  changing the KE File Name), press the [<i>Load File</i>]
+  button.</p>
+
+  <p>If you change the values in the input windows and wish to
+  reset them to their default values before editing, press the
+  [<i>Reset</i>] button.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

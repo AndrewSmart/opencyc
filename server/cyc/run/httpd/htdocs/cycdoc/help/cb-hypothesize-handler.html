@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Hypothesize Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Hypothesize
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <h3><a name="hypothesize">Hypothesized Formulas</a></h3>
+
+  <p>When doing knowledge-entry, it is sometimes desireable to
+  hypothesize a formula to the KB. This is sort of like saying,
+  "What if proposition P were true?"</p>
+
+  <p>When a formula is hypothesized to CYC&reg; in a particular
+  <a href=
+  "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>,
+  CYC&reg; creates constants for any variables, and treats the
+  resulting assertion(s) as true. For example, if the following
+  formula were hypothesized in the #$BiologyMt:</p>
+  <pre>
+    (<a href="/cycdoc/vocab/fundamental-vocab.html#and">#$and</a>
+      (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> ?DOG <a href=
+"/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a>)
+      (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> ?CAT #$Cat)
+      (#$enemies ?DOG ?CAT))
+</pre>two things would happen:
+
+  <ol>
+    <li>New constants would be dynamically created for the
+    variables, in this case ?DOG and ?CAT. These variables would
+    have names along the lines of:
+      <pre>
+    #$HYP-DOG-42375192581
+    #$HYP-CAT-8479329834
+</pre>The "HYP" shows that the constant was created through
+hypothesizing (as opposed to being created by a user, or through
+skolemizing). The number at the end is used to uniquely identify
+the new constant. Remember that an <a href=
+"/cycdoc/vocab/fundamental-vocab.html#Individual">#$Individual</a>
+dog and an individual cat are being hypothesized here, not a
+<a href=
+"/cycdoc/vocab/fundamental-vocab.html#Collection">#$Collection</a>,
+and CYC&reg; may hypothesize many over time. So the number is
+needed to set each new instance apart from prior ones.
+    </li>
+
+    <li>The assertions involving these new constants would be
+    asserted to the KB in the microtheory chosen for the
+    hypothesizing. For the example above, the following assertions
+    would appear in the #$BiologyMt:
+      <pre>
+    (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> #$HYP-DOG-42375192581 <a href="/cycdoc/vocab/biology-vocab.html#Dog">#$Dog</a>)
+    (<a href=
+"/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> #$HYP-CAT-8479329834 #$Cat)
+    (#$enemies #$HYP-DOG-42375192581 #$HYP-CAT-8479329834))
+</pre>In other words, the two new individual animals created are
+enemies of each other. Note that we have NOT said that all cats and
+dogs are enemies, only that these two particular ones are.
+    </li>
+  </ol>
+
+  <h3><a name="entering">Entering a Formula</a></h3>
+
+  <p>Enter the formula to be hypothesized in the "Formula" input
+  window, as in the example above. Note that conjunctions and
+  atomic formulas make the best hypothesized formulas. Use the
+  [<i>Complete</i>] button on any partial constant being entered in
+  the window.</p>
+
+  <p>In the "Mt" input window, enter the <a href=
+  "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>
+  (Mt) where the results of the hypothesizing should go (minus the
+  "#$"), using the [<i>Complete</i>] button if necessary. The
+  default Mt is the <a href=
+  "/cycdoc/vocab/mt-vocab.html#BaseKB">#$BaseKB</a>.</p>
+
+  <p>Press the [<i>Hypothesize</i>] button to hypothesize the
+  formula in the desired microtheory.</p>
+
+  <p>The [<i>Reset Values</i>] button will return both input
+  windows to their initial settings.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

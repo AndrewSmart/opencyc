@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Assert Formula Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0" alt=
+  "the Cyc logo"></a>Assert Formula Help</h2>E-Mail Comments to:
+  <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This page offers help for four different tools that are
+  essentially the same to use:</p>
+
+  <ul>
+    <li>Assert Formula</li>
+
+    <li>Assert Similar Formula</li>
+
+    <li>Edit Assertion</li>
+
+    <li>Fix Typo</li>
+  </ul>
+
+  <h3><a name="tools">Assert, Assert Similar, Edit</a></h3>
+
+  <p>All three tools have the exact same interface, and all result
+  in a formula being asserted to the KB. However, there are a few
+  key differences in how they operate:</p>
+
+  <ul>
+    <li>Assert Formula allows the user to enter a completely new
+    formula. As such, there are no defaults for the input fields,
+    except for Strength, which is set to Default.</li>
+
+    <li>Edit Assertion allows the user to edit an assertion already
+    existing in the KB. Assertions edited using the Edit Assertion
+    tool will be deleted from the KB, and the new version will be
+    asserted in its place. The various parts of the original
+    assertion are used as defaults for the input fields, including
+    the formula, microtheory, strength, and direction.</li>
+
+    <li>Assert Similar Formula allows the user to add a new formula
+    similar to one already existing in the KB. Assertions edited
+    using the Assert Similar Formula will NOT be deleted from the
+    KB. Instead, the old assertion will remain in the KB, and the
+    new version will be asserted as well. As with the Edit
+    Assertion tool, the various parts of the original assertion are
+    used as defaults for the input fields.</li>
+  </ul>
+
+  <h3>Fix Typo</h3>
+
+  <p>The Fix Typo tool is similar to the Edit Assertion tool, but
+  its use is more restricted. The edited sentence can only differ
+  from the original sentence in a string argument (e.g. the second
+  argument of a #$comment assertion). Also, it is not possible to
+  change the strength, direction, or microtheory of an assertion
+  using this tool. Note that the Fix Typo tool preserves the
+  bookkeeping information on the original assertion.</p>
+
+  <h3><a name="changes">Adding and Editing</a></h3>
+
+  <p>To add a new assertion, simply enter the relevant information
+  into each of the input fields provided, then press the
+  [<i>Perform Edit</i>] button. Leaving the Direction field
+  unchecked will cause the default values for that type of
+  assertion to be used (GAFs: forward, rules: backward).</p>
+
+  <p>To edit an assertion, simply change the information provided,
+  either by editing the text or by clicking the appropriate button.
+  To assert the formula, press the [<i>Perform Edit</i>]
+  button.</p>
+
+  <p>To delete an assertion, go to the Assertion Display Frame for
+  the selected assertion and click on "Unassert" (local assertions)
+  or "Blast" (deduced assertions). See the <a href=
+  "/cycdoc/help/cb-af.html">help page for the Assertion Display Frame</a> for
+  details on deleting or blasting assertions.</p>
+
+  <p>To restore input fields to their values before editing, press
+  the [<i>Reset</i>] button.</p>
+
+  <p>To abort the edit completely and return to the previous page,
+  press the [<i>Abort Edit</i>] button.</p>
+
+  <h3><a name="fields">The Input Fields</a></h3>
+
+  <p>The interface for the three tools contains a number of input
+  fields:</p>
+
+  <ul>
+    <li>Mt: enter the microtheory (minus the "#$") in which the
+    formula is to be asserted. To take advantage of constant
+    completion, enter a partial microtheory name and press the
+    [<i>Complete</i>] button. Remember that a list of completions
+    will appear in a separate HTML browser window if the completion
+    is not unique.</li>
+
+    <li>EL Sentence: enter the sentence, using CycL syntax (which
+    utilizes the "#$"). To take advantage of constant completion,
+    type the first part of a CYC&reg; constant in the input window,
+    then press the [<i>Complete</i>] button.</li>
+
+    <li>Strength: choose either Default or Monotonic, choosing both
+    is not possible. False assertions (which it is rare to enter)
+    can be made using <a href=
+    "/cycdoc/vocab/fundamental-vocab.html#not">#$not</a>.</li>
+
+    <li>Direction: choose either Backward or Forward, choosing both
+    is not possible. If no value is selected (only an option for
+    new assertions), the default values for that type of assertion
+    will be used (GAFs: forward, rules: backward).</li>
+  </ul>
+
+  <p>The interface for the Fix Typo tool only contains an input
+  field for EL sentence.</p>
+
+  <p>For more information on CycL syntax, assertions,
+  microtheories, strengths, and directions, see <a href=
+  "/cycdoc/ref/cycl-syntax.html">The Syntax of CycL</a>.</p>
+
+  <h3><a name="email">Email Notifications for Edit Assertion and
+  Fix Typo</a></h3>
+
+  <p>While editing an assertion or fixing a typo in an assertion,
+  it is possible to send out a notification to the owner of the
+  assertion (and possibly others) by checking the the small box to
+  the left of ``email notify'' and entering the usernames of the
+  Cyclists to receive the notification in the text input area that
+  is immediately to the right. Note that if the assertion owner is
+  a current Cycorp employee, then their username will automatically
+  appear in the text input box; you can enter additional usernames
+  by separating them with spaces or commas. It is also possible to
+  enter an (optional) explanation on why the modification in
+  question was necessary; any such explanation will be appended to
+  the default email message body sent out by Cyc.</p>
+
+  <p>It is important to note that email notifications are sent out
+  during assertion editing. In other words, Cyc doesn't wait to see
+  if the cyclist will actually transmit the modification and send
+  out the email only then.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border="0"
+  alt="a light-blue ball">Go to Top</a><br>
+</body>
+</html>

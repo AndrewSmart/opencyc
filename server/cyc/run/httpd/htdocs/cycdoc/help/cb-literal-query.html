@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Literal Query Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Literal Query
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Term Index lists only a limited number of GAFs that
+  involve a given constant, primarily those GAFs which were
+  asserted locally (e.g., entered by a human user). To compute more
+  GAFs of a given type, click on the "plus" symbol next to the
+  desired relation. This will activate the Literal Query tool.</p>
+
+  <h3><a name="query">Literal Queries</a></h3>
+
+  <p>The Literal Query tool asks CYC&reg; to try and compute (via
+  HL modules and other means) more GAFs of the specified type; the
+  results are displayed as follows:</p>
+
+  <ul>
+    <li>"Last query" specifies which atomic formula (in which
+    <a href=
+    "/cycdoc/vocab/mt-expansion-vocab.html#Microtheory">#$Microtheory</a>)
+    is being expanded upon.</li>
+
+    <li>"Bindings" specifies over which argument the computation is
+    taking place (this should match the variable in the query), and
+    displays every possible binding for that argument.</li>
+  </ul>
+
+  <p>For example, suppose <a href=
+  "/cycdoc/vocab/agent-vocab.html#Agent">#$Agent</a> is displayed
+  in the KB Browser. Clicking on the "genls" link in the Term Index
+  under "Arg 1" will list only locally asserted supersets of
+  <a href="/cycdoc/vocab/agent-vocab.html#Agent">#$Agent</a>. We
+  can produce a list of all supersets of <a href=
+  "/cycdoc/vocab/agent-vocab.html#Agent">#$Agent</a> by clicking on
+  the green "plus" symbol next to "genls" in the Term Index; this
+  should produce the following Literal Query:</p>
+  <pre>
+  Last query in BaseKB :
+  (genls Agent ?ARG2)
+
+  Bindings for ?ARG2 :
+  Agent   CompositeTangibleAndIntangibleObject  
+  PartiallyIntangible   PartiallyTangible   SomethingExisting  
+  TemporalThing   SpatialThing   Individual   Thing      
+
+  Examine the inference tree ... 
+</pre>The meaning of which is that <a href=
+"/cycdoc/vocab/agent-vocab.html#Agent">#$Agent</a> has <a href=
+"/cycdoc/vocab/top-vocab.html#PartiallyTangible">#$PartiallyTangible</a>,
+<a href=
+"/cycdoc/vocab/spatial-vocab.html#SpatialThing">#$SpatialThing</a>,
+etc. as supersets.
+
+  <p>"Examine the inference tree" is a link to the Inference Tree
+  Examiner, which provides a detailed look at the inferencing
+  performed during the search.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

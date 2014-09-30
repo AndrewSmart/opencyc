@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Applicable Relations Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Applicable Relations
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>Applicable Relations provides a list of every relation for
+  which the given term could possibly be an argument.</p>
+
+  <p>The list is organized into sections based on which argument
+  position the term could occupy (e.g., "Arg 1", "Arg 2", "Arg 3").
+  Every term will have <a href=
+  "/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a> under its
+  Arg 1 section. All binary predicates will have <a href=
+  "/cycdoc/vocab/fundamental-vocab.html#arg1Isa">#$arg1Isa</a>
+  under their Arg 1 section and <a href=
+  "/cycdoc/vocab/fundamental-vocab.html#arg2Isa">#$arg2Isa</a>
+  under their Arg 2 section. Particular places (e.g.,
+  #$CityOfParisFrance) will have <a href=
+  "/cycdoc/vocab/actor-vocab-complete.html#eventOccursAt">#$eventOccursAt</a>
+  under their Arg 2 section, and particular agents (e.g., #$Lenat)
+  will have <a href=
+  "/cycdoc/vocab/actor-vocab-complete.html#doneBy">#$doneBy</a>
+  under their Arg 2 section.</p>
+
+  <p>Within each section, relations are sorted very roughly as
+  follows: more specific relations come first in the list and more
+  general ones come later.</p>
+
+  <p>Next to some relations in the list are "+" links for
+  processing that relation using the Literal Query tool. In
+  general, the Literal Query tool asks CYC&reg; to compute more
+  queries of a specific type. (See the <a href=
+  "/cycdoc/help/cb-literal-query.html">Literal Query Help</a> for details.)</p>
+
+  <p>Example: if #$Lenat is displayed in the KB Browser, and we
+  click on Applicable Relations, we will see every relation in
+  CYC&reg; that could possibly applyto Lenat. One of those
+  relations should be <a href=
+  "/cycdoc/vocab/biology-vocab.html#mother">#$mother</a>. Clicking
+  on the "+" next to mother will initiate the ask:</p>
+  <pre>
+  (<a href=
+"/cycdoc/vocab/biology-vocab.html#mother">#$mother</a> #$Lenat ?ARG2)
+</pre>to see if CYC&reg; can compute any bindings for that value.
+
+  <p>The different colors specify the likelihood that an answer can
+  be concluded:</p>
+
+  <blockquote>
+    <img src="/cycdoc/img/cb/plus-yellow.gif" alt=
+    "a yellow plus sign"> : CYC&reg; already has assertions
+    asserted and indexed like this.<br>
+    <img src="/cycdoc/img/cb/plus-green.gif" alt=
+    "a green plus sign"> : CYC&reg; has HL methods available which
+    make it VERY likely an answer can be calculated.<br>
+    <img src="/cycdoc/img/cb/plus-purple.gif" alt=
+    "a purple plus sign"> : It's possible but unlikely that a value
+    can be calculated.<br>
+    No + : There's no way for CYC&reg; to conclude this relation.
+  </blockquote>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

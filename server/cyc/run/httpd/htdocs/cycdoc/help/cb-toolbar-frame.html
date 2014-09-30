@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Toolbar Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Toolbar
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The Toolbar Frame allows the user to do three things:</p>
+
+  <ul>
+    <li>Search for constants using the input window.</li>
+
+    <li>Navigate around the KB Browser via the "Tools" and
+    "Navigator" links.</li>
+
+    <li>Access the user login facility via the "Login" link.</li>
+  </ul>
+
+  <h3><a name="layout">Toolbar Layout</a></h3>
+
+  <p>The layout of the Toolbar depends on whether JavaScript is
+  enabled or not. With JavaScript on, there will be a single,
+  multi-purpose window (for options 1-4 below); CYC&reg; constant
+  completion (described below) will also be possible. With
+  JavaScript off, there will be two windows--one for options 1 and
+  3 (left-hand window), one for option 4 (right-hand window);
+  CYC&reg; constant completion will not be available (thus option 2
+  below is not possible), since it requires JavaScript to run.</p>
+
+  <p>JavaScript can be turned on and off on the Browser Options
+  page, accessible by clicking on the "Options" link on the Toolbar
+  or Browser Tools page.</p>
+
+  <p>JavaScript is not enabled by default because certain HTML
+  browsers do not support it fully. To configure your KB Browser to
+  the capabilities of your HTML browser, go to the CYC&reg; Main
+  Menu (click the "Navigator" link to go to the CYC&reg; Navigator)
+  and click on "Browser Setup". The system will determine if your
+  HTML browser supports JavaScript and frames, and configure your
+  KB Browser accordingly.</p>
+
+  <h3><a name="searching">Searching for constants in the
+  KB:</a></h3>
+
+  <p>There are four ways to search using the input window:</p>
+
+  <ol>
+    <li>Enter a complete constant name, then press the
+    [<i>Show</i>] button. (Use the left-hand window with JavaScript
+    off.) There are four versions of this search:
+
+      <ul>
+        <li>Entering a constant name without "#$" (e.g. Foo) uses a
+        case-insensitive lookup, with help from the lexicon.</li>
+
+        <li>Entering a constant name with "#$" (e.g. #$Foo) uses
+        exact, case-sensitive lookup.</li>
+
+        <li>If an entry is preceded by a left parenthesis (e.g.
+        (#$FooFn #$Bar)), an exact, case-sensitive lookup is used
+        to find the specified reified <a href=
+        "/cycdoc/ref/glossary.html#NAT">NAT</a>.</li>
+
+        <li>If an entry is in double quotes (e.g. "foo bar"), the
+        system uses only the lexicon to find constants. This option
+        is only available in versions of CYC&reg; containing the
+        lexicon code.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <ul>
+    <li>Enter the first part of a constant name and press the
+    [<i>Complete</i>] button. Then press the [<i>Show</i>] button.
+    Possible completions will be displayed in a separate completion
+    window which will be reused for future completions. Completion
+    is case sensitive, and requires that JavaScript is enabled in
+    your browser. (This option is not available with JavaScript
+    turned off.)</li>
+
+    <li>Enter a substring of a constant name, using "*" as a
+    wildcard at the tail end of the string (or at both ends) to
+    represent unspecified characters in the string. Then press the
+    [<i>Show</i>] button. Substrings must be at least 3 characters
+    long for this to work. (Use the left-hand window with
+    JavaScript off.)</li>
+
+    <li>Enter a <a href="/cycdoc/help/grep-chart.html">UNIX regular
+    expression</a> and press the [<i>GREP</i>] button. Clicking on
+    the "Ignore Case" button causes the GREP search to become
+    case-insensitive, unclicking makes it sensitive to case. The
+    default setting is to ignore case. In general, the GREP search
+    is faster than the wildcard method mentioned above. However,
+    since the constant search list for the GREP facility is only
+    updated when a new CYC&reg; world is created, the wildcard
+    method may reflect changes to constant names faster than the
+    GREP facility. For help with UNIX regular expressions, click
+    <a href="/cycdoc/help/grep-chart.html">here</a>. (Use the right-hand window
+    with JavaScript off.) If any of the above searches yields more
+    than one possible constant, a list of constants will be
+    displayed. Clicking on the desired constant will display the
+    entry for that constant.</li>
+  </ul>
+
+  <h3><a name="navigating">Navigating Around the KB
+  Browser</a></h3>
+
+  <p>To reach other tools accessible from the KB Browser, click on
+  the "Tools" link. This will take you to the Browser Tools page,
+  where you can either continue on to another tool, or modify the
+  Browser Toolbar so that links to desired tools appear directly in
+  the Toolbar Frame, thus becoming more readily accessible.</p>
+
+  <p>The help page page for the Browser Tools explains each of the
+  available tools in more detail.</p>
+
+  <p>The CYC&reg; Navigator is a useful launching pad for accessing
+  the rest of the CYC&reg; System. To reach it, simply click on the
+  "Navigator" link on the Toolbar or Browser Tools pages.</p>
+
+  <p>Interface preferences for the KB Browser can be set by going
+  to the Browser Options page, accessible via the "Options" link on
+  the Toolbar or Browser Tools pages.</p>
+
+  <h3><a name="login">Login</a></h3>
+
+  <p>In order to fully access all areas of the KB Browser, it is
+  necessary to first login as a CYC&reg; user. The "Login" link in
+  the Toolbar lists the current user, and connects to the Login
+  Area, where new users can login to CYC&reg;.</p>
+
+  <h3><a name="other">Other Information</a></h3>
+
+  <p>Clicking on "Update" refreshes the Toolbar Frame. This link
+  will not appear if JavaScript is turned off. If frames are not
+  being used, this link will also not appear; use the "Update" link
+  in the Agenda Status Bar to refresh the entire page.</p>
+
+  <p>"Machine" lists the machine on which the CYC&reg; Process is
+  running.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

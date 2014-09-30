@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Browser Options Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0" alt=
+  "the Cyc logo"></a>Browser Options Help</h2>E-Mail Comments to:
+  <a href="mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This page allows the user to set interface options for the KB
+  Browser.</p>
+
+  <h3><a name="modify">The Buttons</a></h3>
+
+  <table>
+    <tr>
+      <td align="center" valign="top">[<i>Cancel</i>]</td>
+
+      <td>Cancel all options changes and return to the previous
+      page.</td>
+    </tr>
+
+    <tr>
+      <td align="center" valign="top">[<i>Reset Form</i>]</td>
+
+      <td>Restore all options settings to their values before
+      changes were made.</td>
+    </tr>
+
+    <tr>
+      <td align="center" valign="top">[<i>Submit</i>]</td>
+
+      <td>Set options for the current session only, reflecting any
+      changes to the various options made on the Browser Options
+      page.</td>
+    </tr>
+
+    <tr>
+      <td align="center" valign="top">
+      [<i>Submit&nbsp;&amp;&nbsp;Save</i>]</td>
+
+      <td>Like [<i>Submit</i>], but saves settings for use in
+      future sessions. Saved settings get loaded whenever you log
+      in to an image (provided they can be found), or when you
+      click on...</td>
+    </tr>
+
+    <tr>
+      <td align="center" valign="top">[<i>Load Saved</i>]</td>
+
+      <td>Load your most recently saved options.</td>
+    </tr>
+  </table>
+
+  <h3><a name="general">General Options</a></h3>
+
+  <ul>
+    <li><b>Wrap Assertions:</b> clicking on this option causes
+    assertions to wrap when displayed by the KB Browser. The
+    default value is for no wrap to occur, which allows more
+    assertions to be displayed at one time, but may inhibit viewing
+    of an entire axiom due to length.</li>
+
+    <li><b>Wrap Interactor and Ask input boxes:</b> clicking on
+    this options causes text in the large text input windows (e.g
+    Interactor, Ask, Assert, Edit) to wrap automatically. The
+    default value is for no wrap to occur.</li>
+
+    <li><b>Show newlines in assertion string args:</b></li>
+
+    <li><b>Show documentation in separate window:</b></li>
+
+    <li><b>Show assertion ball tooltips:</b></li>
+
+    <li><b>Show alternating shades of grey backgrounds in
+    tables:</b></li>
+
+    <li><b>Try grepping if other Show methods fail:</b> when this
+    is set, the system will try grepping on a string entered into
+    the completion box if all other methods of locating an
+    appropriate term fail.</li>
+
+    <li><b>Status Frame Update:</b> setting this option to an
+    integer value causes the Agenda Status Bar to be automatically
+    updated in intervals of the specified number of seconds. It may
+    be necessary to refresh the KB Browser or click on the "Update"
+    link in the Agenda Status Bar one final time to activate this
+    option. Leaving the input field blank (the default value)
+    disables the automatic update; the Agenda Status Bar must then
+    be updated manually be clicking on the "Update" link when an
+    update is desired.</li>
+
+    <li><b>Frames and JavaScript:</b> to use HTML frames and
+    JavaScript while using the KB Browser, make sure both buttons
+    are clicked. Both are recommended and are set as default
+    values. Unfortunately, some HTML browsers do not yet support
+    HTML frames and/or JavaScript. If this is the case with your
+    browser, unclick the relevant option to see a more basic
+    version of the KB Browser.</li>
+  </ul>
+
+  <h3><a name="constant">Term Display Options</a></h3>
+
+  <p>The term display options affect how a CYC&reg; term is
+  displayed in the Browser.</p>
+
+  <ul>
+    <li>
+      <b>Default Content:</b> this option sets what kind of
+      information is displayed for a given term when that term is
+      first selected. It is only possibly to choose one of the
+      listed options at a time.
+
+      <ul>
+        <li><b>As much as possible up to __ assertions:</b> will
+        display as many assertions as possible up to the number
+        specified, regardless of type of assertion.</li>
+
+        <li><b>Documentation:</b> will display documentation
+        assertions about the term, including <a href=
+        "/cycdoc/vocab/doc-vocab.html#comment">#$comment</a>,
+        etc.</li>
+
+        <li><b>Definitional Information:</b> will display
+        assertions considered definitional for the term, such as
+        <a href=
+        "/cycdoc/vocab/fundamental-vocab.html#isa">#$isa</a>,
+        <a href=
+        "/cycdoc/vocab/fundamental-vocab.html#genls">#$genls</a>,
+        etc; will also display whether a term is "public" or
+        "mentioned in code".</li>
+
+        <li><b>Lexical Information:</b> will display lexical
+        information about the term, including <a href=
+        "/cycdoc/vocab/lexicon-vocab.html#denotation">#$denotation</a>,
+        etc.</li>
+      </ul>
+    </li>
+
+    <li>
+      <b>Assertion Formulas:</b> this option sets how assertions
+      are displayed when viewing a browser page for a Cyc term. It
+      is only possibly to choose one of the listed options at a
+      time.
+
+      <ul>
+        <li><b>HL formulas:</b> will display the HL formula of each
+        assertion, including such things as #$termOfUnit and skolem
+        terms.</li>
+
+        <li><b>EL formulas:</b> will display the EL formula of each
+        assertion, which is computed at display time, making this
+        option somewhat slower.</li>
+
+        <li><b>EL formulas except when browsing skolems:</b> will
+        display EL formulas, except when you are browsing skolem
+        terms, which generally are not included in EL
+        formulas.</li>
+      </ul>
+    </li>
+
+    <li>
+      <b>Assertion Display Options:</b> These control how
+      assertions are displayed when viewing them separately, in an
+      Assertion Browser page. More than one option can be chosen.
+
+      <ul>
+        <li><b>Show EL formula:</b> will display the EL formula of
+        the assertion, which is computed at display time, making
+        this option somewhat slower.</li>
+
+        <li><b>Show HL formula:</b> will display the HL formula of
+        the assertion, including such things as #$termOfUnit and
+        skolem terms.</li>
+
+        <li><b>Show English translation:</b> will display a
+        natural-language (typically English) paraphrase of the
+        assertion.</li>
+
+        <li><b>Always perform access diagnostics:</b> will run
+        diagnostic tests on each assertion you view.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3><a name="history">History and Browser Tool Options</a></h3>
+
+  <ul>
+    <li>
+      <b>History Display Options:</b> These options control what is
+      displayed on the History page.
+
+      <ul>
+        <li><b>Display no more than __ constants:</b> sets a limit
+        on how many recently browsed constants to display. As you
+        view new ones in excess of the limit, the oldest get bumped
+        off the history list.</li>
+
+        <li><b>Display no more than __ NARTS:</b> ditto, for
+        non-atomic reified terms.</li>
+
+        <li><b>Display no more than __ assertions:</b> ditto, for
+        assertions.</li>
+
+        <li><b>Show EL assertion formulas:</b> whether or not to
+        compute and display EL formulas for assertions.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>NL Options</h3>
+
+  <ul>
+    <li>
+      <b>NL Generation:</b>
+
+      <ul>
+        <li><b>Show assertions in English instead of CycL:</b>
+        causes the NL paraphrases of assertions (typically in
+        English) to be displayed instead of their EL or HL
+        formulas.</li>
+
+        <li><b>Assume Cyc is addressing the current cyclist:</b>
+        causes the paraphrase code to do things like using "me" and
+        "you" to refer to Cyc and the currently logged-in
+        Cyclist.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <b>Lexification:</b>
+
+      <ul>
+        <li><b>Reviewer:</b> the Cyclist who is to review your
+        lexical assertions. Leave blank if your lexical assertions
+        do not require review.</li>
+
+        <li><b>Default Microtheory:</b> where your lexical
+        assertions are placed.</li>
+
+        <li><b>Default Paraphrase Microtheory:</b> where your
+        paraphrase assertions are placed.</li>
+
+        <li><b>Default Parse Template Microtheory:</b> where your
+        parse template assertions are placed.</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border="0"
+  alt="a light-blue ball">Go to Top</a><br>
+</body>
+</html>

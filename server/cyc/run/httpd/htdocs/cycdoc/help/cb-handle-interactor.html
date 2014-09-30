@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>SubL Interactor Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>SubL Interactor
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>The SubL Interactor is an input window for evaluating SubL
+  expressions.</p>
+
+  <h3><a name="eval">Evaluating Expressions</a></h3>
+
+  <p>To evaluate an expression, simply enter the expression in the
+  window and press the [<i>Eval</i>] button. This will bring up a
+  new frame which contains the last form (the expression just
+  evaluated), the results of the evaluation, and a fresh input
+  window. If the expression is malformed an error message is
+  returned.</p>
+
+  <p>To get constant completion while typing in an expression,
+  press the [<i>Complete</i>] button in the middle of a constant
+  name. As always, possible completions (if there is more than one)
+  will be displayed in a separate completion window which will be
+  reused for future completions. Completion is case sensitive, and
+  requires that JavaScript is enabled in your browser.</p>
+
+  <p>To completely refresh the input window and start over, press
+  the [<i>Clear</i>] button.</p>
+
+  <p>To return to the previous frame, press the [<i>Back</i>]
+  button.</p>
+
+  <h3><a name="documentation">Function Documentation</a></h3>
+
+  <p>To view the documentation and arglist for any SubL function,
+  click on "Show function documentation", type in an incomplete
+  function expression, and click on the [<i>Eval</i>] button.
+  Instead of trying to evaluate the expression, the Interactor will
+  find the first incomplete function call it can and return the
+  arglist along with any explicit documentation. For example,</p>
+  <pre>
+        (ke-assert
+</pre>entered into the input window (with "show function
+documentation" on) will return:
+  <pre>
+        KE-ASSERT : (FORMULA MT &amp;OPTIONAL STRENGTH DIRECTION)
+        [documentation would go here if there were any]
+</pre>Note that this feature is not available in all versions of
+the CYC&reg; System.
+
+  <p>At certain times (such as when function documentation is
+  shown), the form originally entered is returned in the input
+  window; if new text is then entered into the window, pressing the
+  [<i>Reset</i>] button will replace the newly entered text with
+  the original returned text. This option is only available if text
+  has been returned in the window by the Interactor.</p>
+
+  <p>For more information about SubL, read the <a href=
+  "/cycdoc/ref/subl-reference.html">SubL Reference
+  Documentation</a>.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

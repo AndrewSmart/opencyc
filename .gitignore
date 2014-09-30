@@ -1,0 +1,5 @@
+#Contains binary *.jars. In the future can potentially include sources of the jars (via tool like subrepo) and have /scripts/run-cyc.sh build them if they're not built. For closed-source binaries a different method should be used (e.g. Ant 'get' task from sourceforge).
+server/cyc/run/lib/
+#Contains data OpenCyc manages (mostly binary). Best to let OpenCyc handle contents. Not sure what method is best for initial population.
+server/cyc/run/units/
+server/cyc/run/preferences/users/

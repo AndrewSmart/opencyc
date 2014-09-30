@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Justification Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Justification
+  Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <h3><a>Justification vs. Arguments</a></h3>
+
+  <p>The Justify tool is very similar to the Arguments tool in that
+  it displays the arguments that support the displayed assertion.
+  However, the Arguments tool only displays those arguments which
+  immediately support the displayed assertion, while Justify
+  provides the entire chain of arguments which together imply the
+  displayed assertion. The Justify tool starts with the displayed
+  assertion, finds its immediate arguments, finds the arguments'
+  arguments, and so on until it reaches only local assertions
+  (assertions whose source is outside of CYC&reg;, e.g., something
+  directly asserted by a human CYC&reg; user).</p>
+
+  <p>For information about the Arguments tool, see the <a href=
+  "/cycdoc/help/cb-arguments.html">Arguments Help"</a> page.</p>
+
+  <h3><a name="justify">Assertion Justifications</a></h3>
+
+  <p>This page first displays the assertion supported, followed by
+  its justification. The justification is listed from most
+  immediate argument to least immediate, indenting each time it
+  goes back another level. A typical justification might be
+  structured as follows:</p>
+  <pre>
+Argument : Deduced #11997313
+
+    [Main-Argument-1]
+    [Main-Argument-2]
+        Argument : Deduced #3565200
+            [Sub-Argument-A]
+            [Sub-Argument-B]
+</pre>Here, [Sub-Argument-A] and [Sub-Argument-B] are assertions
+which support [Main-Argument-2]. Since [Main-Argument-1],
+[Sub-Argument-A], and [Sub-Argument-B] are all leaf nodes of the
+justification tree (no arguments are listed for them), they must be
+local assertions.
+
+  <p>Clicking on any of the "Deduced" links will display in more
+  detail the argument source for the assertion it follows. So in
+  the example above, clicking on "Deduced #3565200" will display
+  the argument source for [Main-Argument-2], while "Deduced
+  #11997313" is a link to the argument source for the main
+  assertion.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>

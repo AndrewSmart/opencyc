@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Save Query Results: Help</title>
+  <meta name="description" content="Save Query Results: Help">
+  <meta name="keywords" content="cb-save-inference-answers">
+  <meta name="resource-type" content="document">
+  <meta name="distribution" content="global">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top" id="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border=
+  "0"></a>Save Query Results: Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 2005&mdash;2009 <a href="http://www.cyc.com">Cycorp</a>.
+  All rights reserved.</i><br>
+  <hr>
+
+  <h3>Available Formats</h3>
+
+  <ul>
+    <li><b>Text</b><br>
+    The results shall be saved such that all the bindings of a
+    particular result are tab-delimited and each result is on a
+    separate line.</li>
+
+    <li style="list-style: none"><br></li>
+
+    <li><b>Default XML</b><br>
+    The results shall be saved as XML using the default XML
+    specification. As a result, there shall be a separate
+    <code>&lt;binding&gt;</code> element for each of the query
+    results. The results are stored within each of these
+    <code>&lt;binding&gt;</code> elements with the EL-variable
+    being the child element and its binding being the text-value of
+    the child element.</li>
+
+    <li style="list-style: none"><br></li>
+
+    <li><b>User-defined XML</b><br>
+    The results shall be saved as XML using the XML specification
+    that the user provides.</li>
+  </ul><br>
+
+  <h3>Steps to Save Results</h3>
+
+  <ol>
+    <li>Select the format in which the results must be stored and
+    click on the [<b>Submit</b>] button.<br>
+    <b>Note:</b> <i>If you want the results to be stored as</i>
+    <b>User-defined XML</b>, <i>then please make sure that a valid
+    XML specification is provided.</i></li>
+
+    <li>The results are now displayed.<br>
+    <b>Note:</b> <i>Depending upon the way your browser is set up,
+    the results may or may not be displayed in the required format.
+    It is very likely that the results are NOT displayed in the
+    required format, but are bunched together. This is
+    okay.</i></li>
+
+    <li>Click on the menu <b>File</b> and then <b>Save Page As
+    ...</b>(or <b>Save As ...</b>). This shall bring up a dialog
+    box.</li>
+
+    <li>In the dialog box,<br>
+
+      <ul>
+        <li><i>Mozilla</i> users: Please make sure that <b>All
+        Files (*)</b> is selected as the file type.</li>
+
+        <li><i>Internet Explorer</i> users: To save as text, please
+        make sure that <b>Web Page, HTML only (*.htm, *.html)</b>
+        is selected as the file type. To save as XML, please make
+        sure that <b>XML files (*.xml)</b> is selected as the file
+        type.</li>
+
+        <li><i>Firefox</i> users: Please make sure that <b>Web
+        Page, HTML only (*.htm, *.html)</b> is selected as the file
+        type.</li>
+      </ul>Select a location for the file and enter a file-name.
+      Then click on the [<b>Save</b>] button.
+    </li>
+
+    <li>Finally, close the window.</li>
+  </ol><br>
+
+  <h3>User-defined XML Specification</h3>The XML specification that
+  is used to convert the query results to XML, is of the following
+  format:
+  <pre>
+(:name <i>element-name</i> 
+ [:sort-asc|:sort-desc <i>sort-key</i>] 
+ [:attributes (<i>att-name1 att-val1 att-name2 att-val2</i> ...)]
+ [:text <i>element-val</i>]
+ [:elements (<i>child1 child2</i> ...)])
+</pre>where<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b><i>element-name</i></b> must be a
+  valid string<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b><i>element-val</i></b> must be a valid
+  string or an EL-variable used in the query<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b><i>sort-key</i></b> must be an
+  EL-variable used in the query<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b><i>att-name</i></b> must be a valid
+  string<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b><i>att-val</i></b> must be a valid
+  string or an EL-variable used in the query<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b><i>child</i></b> must be a valid XML
+  element specification in the above format
+
+  <p>Please note that the keyword-value pairs within square
+  brackets are optional. These optional pairs must be separated by
+  a whitespace. The order of these optional pairs is
+  irrelevant.</p>
+
+  <p><b>Example:</b> For the following query</p>
+  <pre>
+(#$thereExists ?ALLOT
+  (#$and
+    (#$equals ?PROJECTMANAGER #$Klein)
+    (#$projectManagers ?PROJECT ?PROJECTMANAGER)
+    (#$projectAssignments
+     (#$SpecificationOfProjectEventFn ?PROJECT) ?ASSIGNMENT)
+    (#$hasAllotment ?ASSIGNMENT ?ALLOT)))
+</pre>here's a valid XML specification:
+  <pre>
+(:name "project" :sort-asc ?PROJECT
+ :attributes ("id" ?PROJECT "manager" ?PROJECTMANAGER)
+ :elements
+ ((:name "assignment" :sort-desc ?ASSIGNMENT
+   :text ?ASSIGNMENT)))
+</pre>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a>
+</body>
+</html>

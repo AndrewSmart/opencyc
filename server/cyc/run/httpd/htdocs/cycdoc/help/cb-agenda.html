@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>Agenda Process Control Help</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <a name="top"></a>
+
+  <h2><a href="http://www.cyc.com"><img src=
+  "/cycdoc/img/cyc-logo-sm.gif" border="0"></a>Agenda Process
+  Control Help</h2>E-Mail Comments to: <a href=
+  "mailto:doc@cyc.com">doc@cyc.com</a><br>
+  <i>Copyright&copy; 1997&mdash;2009 <a href=
+  "http://www.cyc.com">Cycorp</a>. All rights reserved.</i><br>
+  <hr>
+
+  <p>This page shows the state of the CYC&reg; Agenda, and allows
+  the user to control the Agenda Process by starting and halting
+  it, and by selecting an error handling mode.</p>
+
+  <h3><a name="states">Agenda States</a></h3>For all practical
+  purposes, the CYC&reg; Agenda has two states: Halted or Running.
+  The Agenda Status Bar may list several other states, including
+  Enabled or Idle, but since those states play no significant role
+  in the Agenda Process Control, they are grouped together on this
+  page under "Running", primarily as a matter of convenience. See
+  the <a href="/cycdoc/help/cb-server-status.html">Agenda Status Bar Help</a>
+  for details on the different Agenda states.
+
+  <ul>
+    <li>Halted: The Agenda can be halted due to an error, because
+    it was halted manually, or because it was never initially
+    started after the CYC&reg; image was started up. If the Agenda
+    is "halted" due to an error, "Agenda halted due to" will show
+    the reason why the Agenda has halted. If it was halted
+    manually, "Current Agenda operation" will show the operation
+    that the Agenda has most recently processed. If the Agenda has
+    not yet processed any operations, this part of the page will be
+    blank. When the Agenda is halted, it will not process any
+    operations.</li>
+
+    <li>Running: When the Agenda is running, it is either
+    processing operations, or waiting for operations to process.
+    "Current Agenda operation" will show the operation that the
+    Agenda is currently processing or has most recently
+    processed.</li>
+  </ul>
+
+  <h3><a name="start">Starting and Halting the Agenda</a></h3>
+
+  <p>In the middle of this page is a button that controls whether
+  the CYC&reg; Agenda is running or halted. Depending on whether
+  the Agenda is currently running, it will be labelled either
+  "Start Agenda" or "Halt Agenda".</p>
+
+  <p>To start the Agenda up again after it has been halted, click
+  on the [<i>Start Agenda</i>] button. Operations cannot be
+  processed unless the Agenda is running, so it's a good idea to
+  keep the Agenda running whenever possible.</p>
+
+  <p>To halt the Agenda, click on the [<i>Halt Agenda</i>] button.
+  Remember to restart it when you want to continue processing
+  operations.</p>
+
+  <h3><a name="errors">Error Handling Modes</a></h3>
+
+  <p>The Agenda Process can also be controlled by setting the error
+  handling mode, which tells the Agenda what to do when it
+  encounters an error while processing operations.</p>
+
+  <p>There are three possible modes:</p>
+
+  <ul>
+    <li><b>Enter Debugger:</b> Errors appear in the emacs window
+    where the CYC&reg; image was started; in that window, the
+    CYC&reg; process will be in the debugger, and the user will be
+    given a range of options to choose from (the two most commonly
+    used are "continue" and "abort"). The HTML interface may partly
+    freeze when there is an error; choosing an option in the
+    debugger should return things to normal. This mode is only
+    available in CYC&reg; versions with access to the <a href=
+    "/cycdoc/ref/glossary.html#SubL">SubL</a> source code, and is
+    usually the default mode in a new CYC&reg; image for those
+    versions.</li>
+
+    <li><b>Halt and Display Reason:</b> Errors appear on the Agenda
+    Process Control page, and the Agenda will halt, which will be
+    reflected by the Agenda status being listed as "None" in the
+    Agenda Status Bar. Click on the [<i>Start Agenda</i>] button to
+    abort the error and restart the Agenda. For versions of
+    CYC&reg; without access to the SubL source code, this mode will
+    usually be the default mode in a new CYC&reg; image, unless
+    your System Administrator has installed CYC&reg; with different
+    defaults.</li>
+
+    <li><b>Ignore and Continue:</b> Errors will be bypassed and the
+    Agenda will continue running; no notice or record of the error
+    will be produced. This mode should be used with caution, since
+    a user will have no way of knowing if their work has caused an
+    error.</li>
+  </ul>
+
+  <h3><a name="set-error">Setting the Error Handling Mode:</a></h3>
+
+  <p>Click on one of the buttons to the left of the three modes,
+  then press the [<i>Submit New Mode</i>] button. A message will
+  appear confirming the new communication mode. To reset the
+  buttons to reflect the current error handling mode, press the
+  [Current Mode] button.</p>
+
+  <p>Note that the current error handling mode is always listed at
+  the top of this section.</p>
+
+  <h3><a name="local-queue">The Local Queue</a></h3>
+
+  <p>If there are unprocessed operations in the local queue, one
+  final section will appear in the Agenda Process Control. This
+  section will list how many operations are waiting in the local
+  queue, as well as provide the following options:</p>
+
+  <ul>
+    <li>"Look at the operations in the local queue" displays the
+    (unprocessed) contents of the local queue, in order, and allows
+    the user to clear the entire queue, if desired.</li>
+
+    <li>"Delete the local queue" goes straight to clearing the
+    queue without displaying the contents. A confirmation page is
+    provided in case the user decides not to delete the entire
+    queue after all.</li>
+  </ul>
+
+  <p>For more detailed information on the CYC&reg; Agenda, see the
+  <a href="/cycdoc/ref/system.html#cyc-agenda">CYC&reg; Agenda
+  Documentation</a>.</p>
+  <hr>
+  <a href="#top"><img src="/cycdoc/img/cyc-ball-sm.gif" border=
+  "0">Go to Top</a><br>
+</body>
+</html>
