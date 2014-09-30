@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # $Id: run-cyc-no-services.sh 128878 2009-10-02 17:10:33Z tbrussea $
+# Modified work @ 2014 Andrew Smart
 # Assumes that java 1.6 or higher is in your path
 
 #Set AGENT_LIB_PORT to 0 in order to disable remote debugging

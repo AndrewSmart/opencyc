@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # $Id: cyc-runner.sh 140198 2012-05-29 20:57:21Z builder $
+# Modified work @ 2014 Andrew Smart
 # Assumes that java 1.6 or higher is in your path
 
 ##############################################################
