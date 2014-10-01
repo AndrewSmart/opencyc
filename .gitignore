@@ -3,3 +3,5 @@ server/cyc/run/lib/
 #Contains data OpenCyc manages (mostly binary). Best to let OpenCyc handle contents. Not sure what method is best for initial population.
 server/cyc/run/units/
 server/cyc/run/preferences/users/
+api/java/lib/
+*.swp
