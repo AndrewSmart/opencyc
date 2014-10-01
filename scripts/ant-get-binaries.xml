@@ -8,7 +8,7 @@
 <project name="Get-Official-Binaries" basedir=".." default="complete">
 	<property name="lib.dir" value="server/cyc/run/lib/"/>
 	<property name="units.dir" value="server/cyc/run/units/"/>
-	<property name="api.filemask" value="opencyc*.jar"/>
+	<property name="api.filemask" value="**/*.jar"/>
 	<property name="api.dir" value="api/java/lib/"/>
 	<property name="archive.file" value="opencyc-4.0-linux.tgz"/>
 	<property name="archive.filewin" value="opencyc-4.0-windows.zip"/>
@@ -18,7 +18,10 @@
 	<condition property="isWindows">
 		<os family="windows"/>
 	</condition>
-	<pathconvert property="api.file-exists" setonempty="false" pathsep=" ">
+	<condition property="api.dir-exists">
+		<available file="${api.dir}" type="dir"/>
+	</condition>
+	<pathconvert property="api.file-exists">
 		<path>
 			<fileset dir="." includes="${api.dir}${api.filemask}"/>
 		</path>
@@ -27,7 +30,8 @@
 		<and>
 			<available file="${lib.dir}cyc.jar"/>
 			<available file="${units.dir}5022/special.cfasl"/>
-			<length string="${api.file-exists}" when="greater" length="0"/>
+			<isset property="api.file-exists"/>
+			<isset property="api.dir-exists"/>
 		</and>
 	</condition>
 	<condition property="binaries.notpresent">
@@ -67,7 +71,7 @@
 		</move>
 		<move todir="${api.dir}">
 			<fileset dir="${archive.dir}${archive.extdir}${api.dir}">
-				<include name="${api.filemask}"/>
+				<include name="**/*"/>
 			</fileset>
 		</move>
 	</target>
