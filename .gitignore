@@ -4,3 +4,5 @@ server/cyc/run/lib/
 server/cyc/run/units/
 server/cyc/run/preferences/users/
 server/cyc/run/transcripts/
+api/java/lib/
+*.swp

@@ -18,20 +18,14 @@
 #
 # Modified work @ 2014 Andrew Smart
 
-OPENCYC_RELEASE=opencyc-4.0
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "${scriptdir}"
 
+# Gets the binary OpenCyc data from official source.
+# Gets binary libraries packaged with official OpenCyc distribution.
+ant -f ant-get-binaries.xml -quiet complete
 
-case $(pwd) in
-   */${OPENCYC_RELEASE}) 
-   cd server/cyc/run
-   ;;
-   */${OPENCYC_RELEASE}/scripts) 
-   cd ../server/cyc/run
-   ;;
-  *)
-   echo "Please run $0 from ${OPENCYC_RELEASE}/scripts"
-   exit -1
-esac
+cd ../server/cyc/run
 
 echo 'Launching CYC server at' $(date) '...'
 bin/run-cyc.sh
