@@ -21,8 +21,10 @@ rem Modified work @ 2014 Andrew Smart
 rem move working directory to scripts/ if not already there
 cd %~dp0
 
+rem See if ant is on PATH, if not then try to run cyc anyway:
+for %%X in (ant.bat) do (set FOUNDANT=%%~$PATH:X)
 rem call ant to verify official binaries are installed; if not it will install them
-ant -f ant-get-binaries.xml -quiet complete
+if defined FOUNDANT ant -f ant-get-binaries.xml -quiet complete
 
 cd ..\server\cyc\run
 
