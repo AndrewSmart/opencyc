@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # run-cyc.sh
 #
@@ -15,6 +15,8 @@
 # http://localhost:3602/cgi-bin/cyccgi/cg?cb-start
 # You can browse cyc via the Guest account or perform updates by
 # logging on as CycAdminstrator.
+#
+# Modified work @ 2014 Andrew Smart
 
 OPENCYC_RELEASE=opencyc-4.0
 
