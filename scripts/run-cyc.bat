@@ -16,7 +16,13 @@ rem http://localhost:3602/cgi-bin/cyccgi/cg?cb-start
 rem You can browse cyc via the Guest account or perform updates by
 rem logging on as CycAdminstrator.
 
-rem current directory for this script is assumed to be opencyc-4.0\scripts
+rem Modified work @ 2014 Andrew Smart
+
+rem move working directory to scripts/ if not already there
+cd %~dp0
+
+rem call ant to verify official binaries are installed; if not it will install them
+ant -f ant-get-binaries.xml -quiet complete
 
 cd ..\server\cyc\run
 
