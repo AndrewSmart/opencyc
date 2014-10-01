@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env shh 
 #
 # run-cyc.sh
 #
@@ -21,9 +21,12 @@
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${scriptdir}"
 
-# Gets the binary OpenCyc data from official source.
-# Gets binary libraries packaged with official OpenCyc distribution.
-ant -f ant-get-binaries.xml -quiet complete
+# See if ant is installed on system, if not then try to run cyc anyway.
+if [ "$(command -v ant)" != "" ]; then
+	# Gets the binary OpenCyc data from official source.
+	# Gets binary libraries packaged with official OpenCyc distribution.
+	ant -f ant-get-binaries.xml -quiet complete
+fi
 
 cd ../server/cyc/run
 
