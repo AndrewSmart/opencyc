@@ -1,4 +1,4 @@
-#!/usr/bin/env shh 
+#!/usr/bin/env bash 
 #
 # run-cyc.sh
 #
@@ -17,7 +17,6 @@
 # logging on as CycAdminstrator.
 #
 # Modified work @ 2014 Andrew Smart
-
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${scriptdir}"
 
