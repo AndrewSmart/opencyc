@@ -6,3 +6,4 @@ server/cyc/run/preferences/users/
 server/cyc/run/transcripts/
 api/java/lib/
 *.swp
+*.orig
