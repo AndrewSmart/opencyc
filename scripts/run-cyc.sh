@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash 
 #
 # run-cyc.sh
 #
@@ -15,21 +15,19 @@
 # http://localhost:3602/cgi-bin/cyccgi/cg?cb-start
 # You can browse cyc via the Guest account or perform updates by
 # logging on as CycAdminstrator.
+#
+# Modified work @ 2014 Andrew Smart
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "${scriptdir}"
 
-OPENCYC_RELEASE=opencyc-4.0
+# See if ant is installed on system, if not then try to run cyc anyway.
+if [ "$(command -v ant)" != "" ]; then
+	# Gets the binary OpenCyc data from official source.
+	# Gets binary libraries packaged with official OpenCyc distribution.
+	ant -f ant-get-binaries.xml -quiet complete
+fi
 
-
-case $(pwd) in
-   */${OPENCYC_RELEASE}) 
-   cd server/cyc/run
-   ;;
-   */${OPENCYC_RELEASE}/scripts) 
-   cd ../server/cyc/run
-   ;;
-  *)
-   echo "Please run $0 from ${OPENCYC_RELEASE}/scripts"
-   exit -1
-esac
+cd ../server/cyc/run
 
 echo 'Launching CYC server at' $(date) '...'
 bin/run-cyc.sh

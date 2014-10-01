@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 # import-owl.sh
 #
@@ -8,6 +8,7 @@
 # for legacy API assertion mode:  $./import-owl.sh <anything e.g. foo>
 #
 # written by Stephen Reed  2/11/2004
+# Modified work @ 2014 Andrew Smart
 #
 CLASSPATH=/cyc/java/lib/jakarta-oro-2.0.3.jar
 CLASSPATH=$CLASSPATH:/cyc/java/lib/commons-collections.jar

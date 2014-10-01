@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	Gets the official binaries from the official source.
+	Call the target named 'complete' to get the official binaries; will be called from run-cyc.sh so just run that.
+	The other target designed to be called is 'clean' which will remove any official binaries downloaded.
+	Original work @ 2014 Andrew Smart
+-->
+<project name="Get-Official-Binaries" basedir=".." default="complete">
+	<property name="lib.dir" value="server/cyc/run/lib/"/>
+	<property name="units.dir" value="server/cyc/run/units/"/>
+	<property name="api.filemask" value="**/*.jar"/>
+	<property name="api.dir" value="api/java/lib/"/>
+	<property name="archive.file" value="opencyc-4.0-linux.tgz"/>
+	<property name="archive.filewin" value="opencyc-4.0-windows.zip"/>
+	<property name="archive.extdir" value="opencyc-4.0/"/>
+	<property name="archive.dir" value="tmp/"/>
+	
+	<condition property="isWindows">
+		<os family="windows"/>
+	</condition>
+	<condition property="api.dir-exists">
+		<available file="${api.dir}" type="dir"/>
+	</condition>
+	<pathconvert property="api.file-exists">
+		<path>
+			<fileset dir="." includes="${api.dir}${api.filemask}"/>
+		</path>
+	</pathconvert>
+	<condition property="binaries.present">
+		<and>
+			<available file="${lib.dir}cyc.jar"/>
+			<available file="${units.dir}5022/special.cfasl"/>
+			<isset property="api.file-exists"/>
+			<isset property="api.dir-exists"/>
+		</and>
+	</condition>
+	<condition property="binaries.notpresent">
+		<not>
+			<istrue value="${binaries.present}"/>
+		</not>
+	</condition>
+	<target name="set-windows" if="isWindows">
+		<property name="archive.file" value="${archive.filewin}"/>
+	</target>
+	<target name="get-archive" depends="set-windows" if="binaries.notpresent">
+		<echo>Downloading official binaries</echo>
+		<get src="http://sourceforge.net/projects/opencyc/files/OpenCyc%204.0/${archive.file}" dest="." httpusecaches="false"/>
+		<mkdir dir="${archive.dir}"/>
+		<antcall target="unzip-archive"/>
+		<antcall target="untar-archive"/>
+	</target>
+	<target name="unzip-archive" if="isWindows">
+		<unzip src="${archive.file}" dest="${archive.dir}" overwrite="false"/>
+	</target>
+	<target name="untar-archive" unless="isWindows">
+		<untar src="${archive.file}" dest="${archive.dir}" overwrite="false" compression="gzip"/>
+	</target>
+	<target name="delete-archive" depends="get-archive" if="binaries.notpresent">
+		<delete file="${archive.file}" failonerror="false"/>
+	</target>
+	<target name="move-official-binaries" depends="delete-archive" if="binaries.notpresent">
+		<move todir="${lib.dir}">
+			<fileset dir="${archive.dir}${archive.extdir}${lib.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</move>
+		<move todir="${units.dir}">
+			<fileset dir="${archive.dir}${archive.extdir}${units.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</move>
+		<move todir="${api.dir}">
+			<fileset dir="${archive.dir}${archive.extdir}${api.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</move>
+	</target>
+	<target name="delete-extdir" depends="move-official-binaries" if="binaries.notpresent">
+		<delete dir="${archive.dir}" failonerror="false" verbose="true"/>
+		<echo>Official binaries were downloaded, and temporary files cleaned.</echo>
+	</target>
+	<target name="complete" depends="delete-extdir" if="binaries.notpresent">
+	</target>
+	<target name="clean" description="Delete all prior retrieved binary files">
+		<delete dir="${lib.dir}" failonerror="false"/>
+		<delete dir="${units.dir}" failonerror="false"/>
+		<delete file="${api.file-exists}" failonerror="false"/>
+		<delete file="${archive.file}" failonerror="false"/>
+	</target></project>
