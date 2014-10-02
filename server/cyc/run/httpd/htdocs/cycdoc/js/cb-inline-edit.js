@@ -3,6 +3,7 @@
 	INLINE EDIT ASSERTION CODE (POPUP WHEAT) JS FUNCTIONS for CommercialOpenCyc
 	Ronald Loui for Cycorp (c) 2011
 	see also Dave Schneider
+	Modified work @ 2014 Andrew Smart
 
 	June 2011
 
@@ -52,6 +53,42 @@ to do:
 	to-do:  make global variables distinct for shared NS
 
 */
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	console.log("DOM fully loaded and parsed");
+	if(findDOM) {
+		var assertBox = findDOM('sentence');
+		if(assertBox) {
+			if(assertBox.addEventListener) {
+				assertBox.addEventListener('keydown',autoCompleteHandler,false);
+			} else if(assertBox.attachEvent) {
+				assertBox.attachEvent('onkeydown',autoCompleteHandler); /* damn IE hack */
+			}
+		}
+	}
+});
+
+function autoCompleteHandler(e) {
+	var TABKEY = 9;
+	if(e.keyCode == TABKEY) {
+		console.log(arguments.callee.name);
+		var len = this.value.length;
+		//console.log("len:".concat(len));
+		if(len == 0) {
+			this.value = "(#$";
+		} else { //Get prior character
+			var lastChar = this.value.charAt(len-1);
+			if(lastChar == "(" || lastChar == " ") {
+				this.value += "#$";
+			}
+		}
+		if(e.preventDefault) {
+			e.preventDefault();
+		}
+		return false;
+	}
+}
+
 
 var Dom = YAHOO.util.Dom;
 
