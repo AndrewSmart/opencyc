@@ -3,7 +3,7 @@
 	INLINE EDIT ASSERTION CODE (POPUP WHEAT) JS FUNCTIONS for CommercialOpenCyc
 	Ronald Loui for Cycorp (c) 2011
 	see also Dave Schneider
-	Modified work @ 2014 Andrew Smart
+	Modified work © 2014 Andrew Smart
 
 	June 2011
 
@@ -68,24 +68,180 @@ function loadScript(url, callback) {
 	document.getElementsByTagName('head')[0].appendChild(script);
 }
 
+/*Source of code: https://code.google.com/p/rangyinputs/source/browse/trunk/rangyinputs_jquery.js
+License upplies up until end MIT license clause.
+The MIT License (MIT)
+
+Copyright 2013, Tim Down
+Modified work © 2014 Andrew Smart
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.*/
+
+var UNDEF = "undefined";
+var getSelection;
+// Trio of isHost* functions taken from Peter Michaux's article:
+// http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting
+function isHostMethod(object, property) {
+	var t = typeof object[property];
+	return t === "function" || (!!(t == "object" && object[property])) || t == "unknown";
+}
+
+function isHostProperty(object, property) {
+	return typeof(object[property]) != UNDEF;
+}
+
+function isHostObject(object, property) {
+	return !!(typeof(object[property]) == "object" && object[property]);
+}
+
+function makeSelection(el, start, end) {
+	return {
+		start: start,
+		end: end,
+		length: end - start //,
+		//text: el.value.slice(start, end)
+	};
+}
+
+function getBody() {
+	return isHostObject(document, "body") ? document.body : document.getElementsByTagName("body")[0];
+}
+
+var handleGetTextAreaSelectionAfterDOMReady = function() {
+	var testTextArea = document.createElement("textarea");
+	getBody().appendChild(testTextArea);
+	if (isHostProperty(testTextArea, "selectionStart") && isHostProperty(testTextArea, "selectionEnd")) {
+		getSelection = function(el) {
+			var start = el.selectionStart, end = el.selectionEnd;
+			return makeSelection(el, start, end);
+		};
+	} else if (isHostMethod(testTextArea, "createTextRange") && isHostObject(document, "selection") &&
+			   isHostMethod(document.selection, "createRange")) {
+		getSelection = function(el) {
+			var start = 0, end = 0, normalizedValue, textInputRange, len, endRange;
+			var range = document.selection.createRange();
+			if (range && range.parentElement() == el) {
+				len = el.value.length;
+				normalizedValue = el.value.replace(/\r\n/g, "\n");
+				textInputRange = el.createTextRange();
+				textInputRange.moveToBookmark(range.getBookmark());
+				endRange = el.createTextRange();
+				endRange.collapse(false);
+				if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+					start = end = len;
+				} else {
+					start = -textInputRange.moveStart("character", -len);
+					start += normalizedValue.slice(0, start).split("\n").length - 1;
+					if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+						end = len;
+					} else {
+						end = -textInputRange.moveEnd("character", -len);
+						end += normalizedValue.slice(0, end).split("\n").length - 1;
+					}
+				}
+			}
+			return makeSelection(el, start, end);
+		};
+	} else {
+		getBody().removeChild(testTextArea);
+		Y.log("No means of finding text input caret position");
+		return;
+	}
+	getBody().removeChild(testTextArea);
+}
+
+/*function getInputSelection(el) {
+    var start = 0, end = 0, normalizedValue, range,
+        textInputRange, len, endRange;
+    if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+        start = el.selectionStart;
+        end = el.selectionEnd;
+    } else {
+        range = document.selection.createRange();
+        if (range && range.parentElement() == el) {
+            len = el.value.length;
+            normalizedValue = el.value.replace(/\r\n/g, "\n");
+            // Create a working TextRange that lives only in the input
+            textInputRange = el.createTextRange();
+            textInputRange.moveToBookmark(range.getBookmark());
+            // Check if the start and end of the selection are at the very end
+            // of the input, since moveStart/moveEnd doesn't return what we want
+            // in those cases
+            endRange = el.createTextRange();
+            endRange.collapse(false);
+            if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+                start = end = len;
+            } else {
+                start = -textInputRange.moveStart("character", -len);
+                start += normalizedValue.slice(0, start).split("\n").length - 1;
+                if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+                    end = len;
+                } else {
+                    end = -textInputRange.moveEnd("character", -len);
+                    end += normalizedValue.slice(0, end).split("\n").length - 1;
+                }
+            }
+        }
+    }
+    return {
+        start: start,
+        end: end
+    };
+}*/
+//End MIT license.
+
 //Load YUI3, has better autocomplete than OpenCyc's included YUI2.
 var yui3LoadScriptFinishedHandler = function() {
 	//Adds autocomplete feature to assert sentence box.
 	YUI().use('node', 'event-base', 'autocomplete', 'autocomplete-highlighters', 'datasource-get', 'datasource-io', 'datasource-xmlschema', function (Y) {
-		// Extends Y.Plugin.Autocomplete plugin class to override protected method _updateValue.
-		// Logic of extending plugin inferred from Y.Plugin.AutoComplete inheriting from ACListPlugin: https://github.com/yui/yui3/blob/dev-master/src/autocomplete/js/autocomplete-plugin.js
 		function CycAutoCompletePlugin(config) {
 			CycAutoCompletePlugin.superclass.constructor.apply(this, arguments);
+			// Hold onto the host instance (a Node in this case),
+			// for other plugin methods to use.
+			this.Node = config.host;
 		}
-		// Extend Y.Plugin.AutoComplete, and override the default method _updateValue
+		// Extend Y.Plugin.AutoComplete to make CycAutoCompletePlugin to add features useful for OpenCyc:
 		Y.extend(CycAutoCompletePlugin, Y.Plugin.AutoComplete, {
+			_parseValue: function(value) {
+				var QUERY_DELIMITER = 'queryDelimiter';
+				var delim = this.get(QUERY_DELIMITER);
+				var sel = getSelection(this.Node._node);
+				if(sel) {
+					value = value.substring(0,sel.end); //Get substring up to where cursor is.
+				}
+				if (delim) { //Now get last token (last token is where cursor is, if cursor was found).
+					value = value.split(delim);
+					value = value[value.length - 1];
+				}
+				value = value.replace(/[#|\$]+/, '');
+				return Y.Lang.trimLeft(value);
+			},
 			_updateValue : function(newVal) {
-                var VALUE = 'value',
-	                QUERY = 'query';
+				var VALUE = 'value',
+					QUERY = 'query';
 				var query = this.get(QUERY),
 					value = this.get(VALUE);
-				var re = new RegExp('([^$]|^)(' + query + ')');
-				this.set(VALUE, value.replace(re, '$1' + newVal));
+				var sel = getSelection(this.Node._node); //Get cursor position
+				var before = value.substring(0, sel.end);
+				var aft = value.substring(sel.end);
+				var re = new RegExp('[#|\$]*' + query + '$');
+				this.set(VALUE, before.replace(re, newVal) + aft);
 			}
 		}, {
 			NAME : 'cycAutoCompletePlugin',
@@ -139,6 +295,7 @@ var yui3LoadScriptFinishedHandler = function() {
 			}
 		};
 		//Wait till DOM is loaded:
+		Y.on('domready', handleGetTextAreaSelectionAfterDOMReady);
         Y.on('domready', handleSentenceAfterDOMReady);
 	});
 };
