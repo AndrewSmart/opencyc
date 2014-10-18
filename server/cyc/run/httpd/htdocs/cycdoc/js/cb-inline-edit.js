@@ -72,6 +72,27 @@ function loadScript(url, callback) {
 var yui3LoadScriptFinishedHandler = function() {
 	//Adds autocomplete feature to assert sentence box.
 	YUI().use('node', 'event-base', 'autocomplete', 'autocomplete-highlighters', 'datasource-get', 'datasource-io', 'datasource-xmlschema', function (Y) {
+		// Extends Y.Plugin.Autocomplete plugin class to override protected method _updateValue.
+		// Logic of extending plugin inferred from Y.Plugin.AutoComplete inheriting from ACListPlugin: https://github.com/yui/yui3/blob/dev-master/src/autocomplete/js/autocomplete-plugin.js
+		function CycAutoCompletePlugin(config) {
+			CycAutoCompletePlugin.superclass.constructor.apply(this, arguments);
+		}
+		// Extend Y.Plugin.AutoComplete, and override the default method _updateValue
+		Y.extend(CycAutoCompletePlugin, Y.Plugin.AutoComplete, {
+			_updateValue : function(newVal) {
+                var VALUE = 'value',
+	                QUERY = 'query';
+				var query = this.get(QUERY),
+					value = this.get(VALUE);
+				var re = new RegExp('([^$]|^)(' + query + ')');
+				this.set(VALUE, value.replace(re, '$1' + newVal));
+			}
+		}, {
+			NAME : 'cycAutoCompletePlugin',
+			NS : 'ac',
+			CSS_PREFIX : Y.ClassNameManager.getClassName('aclist')
+		});
+
 		var handleSentenceAfterDOMReady = function() {
 			var assertBox = Y.one('#sentence');
 			if(assertBox) { //Note cb-inline-edit.js is included from more than just the assert tool.
@@ -100,11 +121,11 @@ var yui3LoadScriptFinishedHandler = function() {
 					}
 				});
 
-				assertBox.plug(Y.Plugin.AutoComplete, {
+				assertBox.plug(CycAutoCompletePlugin, { //Y.Plugin.AutoComplete, {
 					allowBrowserAutocomplete: true,
 					maxResults: 20,
 					queryDelay: 50,
-					queryDelimiter: ' ',
+					queryDelimiter: /[()\s]/,
 					resultHighlighter: 'phraseMatch',
 					source: ds, // Use the DataSource instance as the result source.
 					resultTextLocator: 'cycl',
