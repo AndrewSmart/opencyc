@@ -20,13 +20,13 @@
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${scriptdir}"
 
-# See if ant is installed on system, if not then try to run cyc anyway.
+# See if Ant is installed on system, if not then try to run cyc anyway.
 if [ "$(command -v ant)" != "" ]; then
 	# Gets the binary OpenCyc data from official source.
 	# Gets binary libraries packaged with official OpenCyc distribution.
 	ant -f ant-get-binaries.xml -quiet complete
 else
-	echo '!!!ant not found on system!!! Attempting to start OpenCyc anyway. If cyc fails to start, install ant so that this script can retrieve official OpenCyc binaries.'
+	echo '!!!Ant not found on system!!! Attempting to start OpenCyc anyway. If cyc fails to start, install Ant so that this script can retrieve official OpenCyc binaries.'
 fi
 
 cd ../server/cyc/run

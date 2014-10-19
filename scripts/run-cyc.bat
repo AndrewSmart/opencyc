@@ -21,10 +21,10 @@ rem Modified work @ 2014 Andrew Smart
 rem move working directory to scripts/ if not already there
 cd %~dp0
 
-rem See if ant is on PATH, if not then try to run cyc anyway:
+rem See if Ant is on PATH, if not then try to run cyc anyway:
 for %%X in (ant.bat) do (set FOUNDANT=%%~$PATH:X)
-rem call ant to verify official binaries are installed; if not it will install them
-if defined FOUNDANT (ant -f ant-get-binaries.xml -quiet complete) else (echo "^!^!^!ant not found on system^!^!^! Attempting to start OpenCyc anyway. If cyc fails to start, install ant so that this script can retrieve official OpenCyc binaries.")
+rem call Ant to verify official binaries are installed; if not it will install them
+if defined FOUNDANT (ant -f ant-get-binaries.xml -quiet complete) else (echo "^!^!^!Ant not found on system^!^!^! Attempting to start OpenCyc anyway. If cyc fails to start, install Ant so that this script can retrieve official OpenCyc binaries.")
 
 cd ..\server\cyc\run
 
