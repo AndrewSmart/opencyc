@@ -24,7 +24,7 @@ cd %~dp0
 rem See if ant is on PATH, if not then try to run cyc anyway:
 for %%X in (ant.bat) do (set FOUNDANT=%%~$PATH:X)
 rem call ant to verify official binaries are installed; if not it will install them
-if defined FOUNDANT ant -f ant-get-binaries.xml -quiet complete
+if defined FOUNDANT (ant -f ant-get-binaries.xml -quiet complete) else (echo "^!^!^!ant not found on system^!^!^! Attempting to start OpenCyc anyway. If cyc fails to start, install ant so that this script can retrieve official OpenCyc binaries.")
 
 cd ..\server\cyc\run
 
