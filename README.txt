@@ -4,9 +4,8 @@
 
 Welcome!
 
-Two OpenCyc 4.0 releases are available, one for Linux and one for
-Windows. (Since OpenCyc 4.0 is implemented in Java 1.6, the two
-installations differ primarily in their startup scripts.)
+OpenCyc 4.0 is available for Linux and Windows.
+Since OpenCyc 4.0 is implemented in Java 1.6.
 
 OpenCyc requires 3G RAM under 64bit and about 1G of disk space.
 Running OpenCyc under 32bit is no longer supported.
@@ -44,22 +43,18 @@ To view the full OpenCyc documentation: http://www.opencyc.org
 
 == Installation ==
 
-1. Create a directory to contain opencyc (call it something like
-   'opencyc'), copy the archive into that directory, then untar or
-   unzip the compressed archive.
+1. You need to get the source code from GitHub, from a command such as
+   the following:
+       git clone git@github.com:AndrewSmart/opencyc.git
 
-   For Linux:
-  
-       tar -xvfz opencyc-4.0.tgz
+   The author follows the git branching model mentioned here:
+       http://nvie.com/posts/a-successful-git-branching-model/
 
-   For Windows:
+   The repository doesn't contain any compiled .jar files; those are
+   retrieved/compiled later by Ant/Maven.
 
-       unzip the zipped folder
-
-   This will create a directory named opencyc-4.0 under the directory
-   you created.
-
-2. Invoke the script to run OpenCyc. 
+2. Invoke the script to run OpenCyc. This script requires Ant to be
+   installed on your system.
 
    For Linux: 
 
@@ -70,6 +65,10 @@ To view the full OpenCyc documentation: http://www.opencyc.org
 
        Navigate to the directory opencyc-4.0\scripts
        double-click the file run-cyc.bat
+
+   When the script is ran, it calls Ant in order to verify the official
+   binaries (compiled .jar files) are installed, if they are not it will
+   retrieve them from sourceforge.net.
 
    When OpenCyc is started, it loads the KB into memory; depending on the
    amount of RAM on your system and the speed of your disk, this can take
