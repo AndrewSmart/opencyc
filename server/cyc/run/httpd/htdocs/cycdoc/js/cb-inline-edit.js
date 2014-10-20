@@ -3,7 +3,7 @@
 	INLINE EDIT ASSERTION CODE (POPUP WHEAT) JS FUNCTIONS for CommercialOpenCyc
 	Ronald Loui for Cycorp (c) 2011
 	see also Dave Schneider
-	Modified work @ 2014 Andrew Smart
+	Modified work © 2014 Andrew Smart
 
 	June 2011
 
@@ -54,111 +54,115 @@ to do:
 
 */
 
-//Adds autocomplete feature to assert sentence box.
-document.addEventListener("DOMContentLoaded", function(event) {
-	//console.log("DOM fully loaded and parsed");
-	if(findDOM) {
-		var assertBox = findDOM('sentence');
-		if(assertBox) {
-			//Move sentence to div TODO:Find source layout and change there rather than via javascript
-			var div = document.createElement('div');
-			div.className = "yui3-skin-sam";
-			var assertBoxParent = assertBox.parentNode;
-			if(assertBoxParent) {
-				assertBoxParent.removeChild(assertBox);
-				assertBoxParent.appendChild(div);
-				div.appendChild(assertBox);
-				//var divCompleteContainer = document.createElement('sentenceCompleteContainer');
-				//div.className=
-				//Load YUI3, has better autocomplete than OpenCyc's included YUI2.
-				loadScript("http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js", yui3LoadScriptFinishedHandler); 
-			}
-			//Now add event handler for 'tab' key to allow auto-complete.
-			if(assertBox.addEventListener) {
-				//assertBox.addEventListener('keydown',autoCompleteHandler,false);
-			} else if(assertBox.attachEvent) {
-				//assertBox.attachEvent('onkeydown',autoCompleteHandler); /* damn IE hack */
-			}
-		}
-	}
-});
-
-function loadScript(url, callback)
-{
-	// Adding the script tag to the head as suggested before
-	var head = document.getElementsByTagName('head')[0];
+//Function loads script dynamically, and calls callback when done:
+function loadScript(url, callback) {
 	var script = document.createElement('script');
 	script.type = 'text/javascript';
 	script.src = url;
-
 	// Then bind the event to the callback function.
 	// There are several events for cross browser compatibility.
 	script.onreadystatechange = callback;
 	script.onload = callback;
 
 	// Fire the loading
-	head.appendChild(script);
+	document.getElementsByTagName('head')[0].appendChild(script);
 }
 
+//Load YUI3, has better autocomplete than OpenCyc's included YUI2.
 var yui3LoadScriptFinishedHandler = function() {
-	//console.log("loaded YUI3");
-	YUI().use('autocomplete', 'autocomplete-highlighters', 'datasource-get', 'datasource-io', 'datasource-xmlschema', function (Y) {
-		// Create a DataSource instance.
-		var ds = new Y.DataSource.IO({
-			source: './cg?xml-complete&filter=c292&prefix='
-		});
-
-		// Parse xml using XML schema
-		ds.plug(Y.Plugin.DataSourceXMLSchema, {
-			schema: {
-				resultListLocator: "Term",
-				resultFields: [
-					{key:"cycl", locator:"@*[local-name()='cycl']"},
-					{key:"nl", locator:"@*[local-name()='nl']"}
-				]
-			}
-		});
-
-		Y.one('#sentence').plug(Y.Plugin.AutoComplete, {
-			allowBrowserAutocomplete: true,
-			maxResults: 20,
-			queryDelay: 50,
-			queryDelimiter: ' ',
-			resultHighlighter: 'phraseMatch',
-			source: ds, // Use the DataSource instance as the result source.
-			resultTextLocator: 'cycl',
-			activateFirstItem: true,
-			align: {
-				node: '#sentence',
-				points: ['tl', 'tr']
+	//Adds autocomplete feature to assert sentence box.
+	YUI().use('node', 'event-base', 'autocomplete', 'autocomplete-highlighters', 'datasource-get', 'datasource-io', 'datasource-xmlschema', function (Y) {
+		function CycAutoCompletePlugin(config) {
+			CycAutoCompletePlugin.superclass.constructor.apply(this, arguments);
+			// Hold onto the host instance (a Node in this case),
+			// for other plugin methods to use.
+			this.Node = config.host;
+		}
+		// Extend Y.Plugin.AutoComplete to make CycAutoCompletePlugin to add features useful for OpenCyc:
+		Y.extend(CycAutoCompletePlugin, Y.Plugin.AutoComplete, {
+			_parseValue: function(value) {
+				var QUERY_DELIMITER = 'queryDelimiter';
+				var delim = this.get(QUERY_DELIMITER);
+				var sel = getSelection(this.Node._node);
+				if(sel) {
+					value = value.substring(0,sel.end); //Get substring up to where cursor is.
+				}
+				//Now get last token (last token is where cursor is, if cursor was found).
+				value = value.split(delim);
+				value = value[value.length - 1];
+				value = value.replace(/[#|\$]+/, '');
+				return Y.Lang.trimLeft(value);
 			},
-			tabSelect: true
+			_updateValue : function(newVal) {
+				var VALUE = 'value',
+					QUERY = 'query';
+				var query = this.get(QUERY),
+					value = this.get(VALUE);
+				var sel = getSelection(this.Node._node); //Get cursor position
+				var before = value.substring(0, sel.end);
+				var aft = value.substring(sel.end);
+				var re = new RegExp('[#|\$]*' + query + '$');
+				this.set(VALUE, before.replace(re, newVal) + aft);
+			}
+		}, {
+			NAME : 'cycAutoCompletePlugin',
+			NS : 'ac',
+			CSS_PREFIX : Y.ClassNameManager.getClassName('aclist')
 		});
+
+		var handleSentenceAfterDOMReady = function() {
+			var assertBox = Y.one('#sentence');
+			if(assertBox) { //Note cb-inline-edit.js is included from more than just the assert tool.
+				//Need to apply YUI3 skinning in order for autocomplete popup to be skinned,
+				// Will be skinned via a div so that nothing else (e.g. YUI2 stuff) will be skinned with YUI3 default skin.
+				var assertBoxParent = assertBox.ancestor();
+				if(assertBoxParent) {
+					assertBoxParent.removeChild(assertBox);
+					var div = Y.Node.create('<div/>').addClass('yui3-skin-sam').appendTo(assertBoxParent);
+					div.appendChild(assertBox);
+				}
+
+				// Create a DataSource instance.
+				var ds = new Y.DataSource.IO({
+					source: './cg?xml-complete&filter=c292&prefix='
+				});
+
+				// Parse xml using XML schema
+				ds.plug(Y.Plugin.DataSourceXMLSchema, {
+					schema: {
+						resultListLocator: "Term",
+						resultFields: [
+							{key:"cycl", locator:"@*[local-name()='cycl']"},
+							{key:"nl", locator:"@*[local-name()='nl']"}
+						]
+					}
+				});
+
+				assertBox.plug(CycAutoCompletePlugin, { //Y.Plugin.AutoComplete, {
+					allowBrowserAutocomplete: true,
+					maxResults: 20,
+					queryDelay: 50,
+					queryDelimiter: /[()\s]/,
+					resultHighlighter: 'phraseMatch',
+					source: ds, // Use the DataSource instance as the result source.
+					resultTextLocator: 'cycl',
+					activateFirstItem: true,
+					align: {
+						node: '#sentence',
+						points: ['tl', 'tr']
+					},
+					tabSelect: true
+				});
+			}
+		};
+		//Wait till DOM is loaded:
+        Y.on('domready', handleSentenceAfterDOMReady);
 	});
 };
 
-function autoCompleteHandler(e) {
-	var TABKEY = 9;
-	var e = (e) ? e : ((event) ? event : null);
-	if(e.keyCode == TABKEY) {
-		console.log(arguments.callee.name);
-		var len = this.value.length;
-		//console.log("len:".concat(len));
-		if(len == 0) {
-			this.value = "(#$";
-		} else { //Get prior character
-			var lastChar = this.value.charAt(len-1);
-			if(lastChar == "(" || lastChar == " ") {
-				this.value += "#$";
-			}
-		}
-		if(e.preventDefault) {
-			e.preventDefault();
-		}
-		return false;
-	}
-}
-
+//TODO: handleGetTextAreaSelectionAfterDOMReady should be handled within rangyinputs.js
+loadScript("/cycdoc/js/rangyinputs.js", function() { handleGetTextAreaSelectionAfterDOMReady(); });
+loadScript("http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js", yui3LoadScriptFinishedHandler);
 
 var Dom = YAHOO.util.Dom;
 
