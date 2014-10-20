@@ -141,7 +141,7 @@ var yui3LoadScriptFinishedHandler = function() {
 				assertBox.plug(CycAutoCompletePlugin, { //Y.Plugin.AutoComplete, {
 					allowBrowserAutocomplete: true,
 					maxResults: 20,
-					queryDelay: 50,
+					queryDelay: 300,
 					queryDelimiter: /[()\s]/,
 					resultHighlighter: 'phraseMatch',
 					source: ds, // Use the DataSource instance as the result source.
