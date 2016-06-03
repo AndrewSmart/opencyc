@@ -1,3 +1,14 @@
+Fork Notice:
+
+At this time ResearchCyc & EnterpriseCyc use the Cyc Core API: http://dev.cyc.com/api/core/download/ https://github.com/cycorp/api-suite
+In the future the intention is for both the Core API and OpenCyc API to support OpenCyc 4.0. If all you intend to use/support is OpenCyc 4.0 then there is nothing to worry about.
+
+This fork of OpenCyc simply adds autocomplete to the web interface to significantly accelerate CycL input.
+
+Rather than store the large binary knowledge in git, Ant will download the large knowledge binaries, the OpenCyc API jar, and closed source jars from CycCorp's OpenCyc 4.0 release on sourceforge. The OpenCyc API source is here but the plumbing to build it from source was not set up, it is simply pulled from sourceforge along with the other jars. Issues may exist with it- for example Turkish characters are not supported. I apologize I didn't set up the plumbing to build the jar via Maven and I have no incentive to- but will welcome pull requests.
+
+Enjoy! -Andrew R. Smart
+
 =====================================================
   Installation instructions for OpenCyc release 4.0
 =====================================================
